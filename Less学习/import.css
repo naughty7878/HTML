@@ -1,0 +1,17 @@
+@charset "utf-8";
+/*  */
+/* 导入，默认导入的是less文件 */
+/*1、这样的注释是会编译到css当中 css也支持*/
+a:hover {
+  color: #e92333;
+}
+body {
+  background-color: #e92333;
+  color: red;
+}
+div {
+  border: 1px solid #e92333;
+}
+.color {
+  color: #e92333;
+}

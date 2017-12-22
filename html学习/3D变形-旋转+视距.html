@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 228px;
+			height: 160px;
+			margin: 100px auto;
+		}
+		div img {
+			transition: all 2s;
+		}
+		div:first-child {
+			perspective: 1000px;
+		}
+		div:first-child:hover img{
+			transform: rotateX(180deg);
+		}
+		div:nth-child(2) {
+			perspective: 600px;
+		}
+		div:nth-child(2):hover img{
+			transform: rotateY(180deg);
+		}
+		div:nth-child(3) {
+			perspective: 300px;
+		}
+		div:nth-child(3):hover img{
+			transform: rotateZ(180deg);
+		}
+		div:last-child {
+			perspective: 500px;
+		}
+		div:last-child:hover img{
+			transform: translateZ(-700px);
+		}
+	</style>
+</head>
+<body>
+	<div><img src="images/icon1.png" alt=""></div>
+	<div><img src="images/icon1.png" alt=""></div>
+	<div><img src="images/icon1.png" alt=""></div>
+	<div><img src="images/icon1.png" alt=""></div>
+</body>
+</html>

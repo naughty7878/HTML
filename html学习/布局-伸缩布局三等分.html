@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		section {
+			width: 80%;
+			height: 200px;
+			border: 1px solid red;
+			margin: 100px auto;
+			/*父级盒子添加 flex;*/
+			display: flex;/*伸缩布局*/
+			min-width: 500px;
+			flex-direction: row;
+		}
+		section div {
+			height: 100%;
+			/*子盒子添加份数 flex: 1*/
+			flex: 1;
+		}
+		section div:nth-child(1) {
+			background: green;
+		}
+		section div:nth-child(2) {
+			background: orange;
+			margin: 0 5px;
+			flex: 2;
+		}
+		section div:nth-child(3) {
+			background: skyblue;
+		}
+
+		nav {
+			width: 1000px;
+			height: 200px;
+			border: 1px solid red;
+			margin: 100px auto;
+			/*父级盒子添加 flex;*/
+			display: flex;/*伸缩布局*/
+			min-width: 500px;
+
+			/*justify-content: flex-start; 容器开头对齐*/
+			/*justify-content: flex-end; 容器结尾对齐*/
+			/*justify-content: center; 容器中间对齐*/
+			/*justify-content: space-between; 容器两端对齐*/
+			justify-content: space-around; /*容器平均等分*/
+		}
+		nav div {
+			height: 100%;
+			width: 250px;
+		}
+		nav div:nth-child(1) {
+			background: green;
+		}
+		nav div:nth-child(2) {
+			background: orange;
+		}
+		nav div:nth-child(3) {
+			background: skyblue;
+		}
+
+		.align {
+			width: 1000px;
+			height: 500px;
+			border: 1px solid red;
+			margin: 100px auto;
+			/*父级盒子添加 flex;*/
+			display: flex;/*伸缩布局*/
+			min-width: 500px;
+			
+			/*align-items: flex-start; 顶对齐*/
+			/*align-items: flex-end; 地对齐*/
+			/*align-items: center;  垂直居中*/
+			align-items: stretch;  /* 让子元素高度拉伸为父元素高度*/
+		}
+		.align div {
+			min-height: 100px;
+			width: 250px;
+		}
+		.align div:nth-child(1) {
+			background: green;
+		}
+		.align div:nth-child(2) {
+			background: orange;
+		}
+		.align div:nth-child(3) {
+			background: skyblue;
+		}
+
+		.wrap {
+			width: 1000px;
+			height: 500px;
+			border: 1px solid red;
+			margin: 100px auto;
+			/*父级盒子添加 flex;*/
+			display: flex;/*伸缩布局*/
+			min-width: 500px;
+
+			/*flex-wrap: nowrap; 默认方式 强制一行显示*/
+			flex-wrap: wrap; /*换行显示*/
+			/*flex-wrap: wrap-reverse; 换行反序，显示*/
+		}
+		.wrap div {
+			min-height: 100px;
+			width: 330px;
+		}
+		.wrap div:nth-child(1) {
+			background: green;
+		}
+		.wrap div:nth-child(2) {
+			background: orange;
+		}
+		.wrap div:nth-child(3) {
+			background: skyblue;
+		}
+		.wrap div:nth-child(4) {
+			background: deeppink;
+		}
+
+		.align2 {
+			width: 1000px;
+			height: 500px;
+			border: 1px solid red;
+			margin: 100px auto;
+			/*父级盒子添加 flex;*/
+			display: flex;/*伸缩布局*/
+			min-width: 500px;
+
+			flex-direction: row;
+			flex-wrap: wrap;
+			/*align-content: stretch;  默认方式 拉伸对齐*/
+			/*align-content: center; 居中对齐*/
+			/*align-content: flex-start; 顶对齐*/
+			/*align-content: flex-end; 地对齐*/
+			/*align-content: space-between; 两端对齐*/
+			align-content: space-around; /*平均对齐*/
+		}
+		.align2 div {
+			min-height: 100px;
+			width: 330px;
+		}
+		.align2 div:nth-child(1) {
+			background: green;
+		}
+		.align2 div:nth-child(2) {
+			background: orange;
+		}
+		.align2 div:nth-child(3) {
+			background: skyblue;
+		}
+		.align2 div:nth-child(4) {
+			background: deeppink;
+		}
+
+		.order {
+			width: 1000px;
+			height: 500px;
+			border: 1px solid red;
+			margin: 100px auto;
+			/*父级盒子添加 flex;*/
+			display: flex;/*伸缩布局*/
+			min-width: 500px;
+
+			flex-flow: row wrap;
+		}
+		.order div {
+			min-height: 200px;
+			width: 330px;
+		}
+		.order div:nth-child(1) {
+			order: 1;
+			background: green;
+		}
+		.order div:nth-child(2) {
+			order: -1;
+			background: orange;
+		}
+		.order div:nth-child(3) {
+			background: skyblue;
+		}
+		.order div:nth-child(4) {
+			background: deeppink;
+		}
+
+
+	</style>
+</head>
+<body>
+	<section>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+	</section>
+	<!-- 水平对齐 -->
+	<nav>
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+	</nav>
+	<!-- 垂直对齐 单行-->
+	<div class="align">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+	</div>
+	<!-- 元素换行 -->
+	<div class="wrap">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+	</div>
+
+	<!-- 垂直对齐 多行 -->
+	<div class="align2">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+	</div>
+
+	<!-- 排序 -->
+	<div class="order">
+		<div>1</div>
+		<div>2</div>
+		<div>3</div>
+		<div>4</div>
+	</div>
+</body>
+</html>

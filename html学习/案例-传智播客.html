@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/*样式*/
+		* {
+			margin: 0; /*清除内外边距*/
+			padding: 0;
+		}
+		ul {
+			list-style: none; /*去掉列表样式*/
+		}
+		.clearfix:before, .clearfix:after {
+			display: table;
+			content: "";
+		}
+		.clearfix:after {
+			clear: both;
+		}
+		.clearfix {
+			*zoom: 1; /*IE6/7 兼容*/
+		}
+		/*页面头部分*/
+		header {
+			height: 109px;
+			background-color: #ebebeb;
+		}
+		header div:first-child {
+			height: 30px;
+		}
+		.second-div:last-child {
+			height: 79px;
+			background: #2e3440;
+			overflow: hidden;
+		}
+		header .top {
+			width: 1200px;
+			margin: 0 auto;
+		}
+		.top-left {
+			float: left;
+			font-size: 12px;
+			color: #565656;
+			line-height: 30px;
+		}
+		.top-right {
+			float: right;
+			font-size: 12px;
+			color: #565656;
+			line-height: 30px;
+		}
+		nav {
+			margin: 16px auto; 
+
+		}
+		/*color*/
+		.orange {
+			color: #d72513;
+		}
+
+		
+	</style>
+</head>
+<body>
+	<!-- 结构 -->
+	<!-- 页面头部分 -->
+	<header>
+		<div>
+			<div class="top clearfix">
+				<p class="top-left">
+					<span class="orange">传智播客</span>、<span class="orange"  >黑马程序员</span>免费时间教程、公开课资源下载平台</p>
+				<p class="top-right">全国咨询热线：400-618-9090</p>
+			</div>
+		</div>
+		<div class="second-div">	
+			<nav class="top">
+				<img  src="images/logo.png" alt="">
+			</nav>
+		</div>
+	</header>
+</body>
+</html>

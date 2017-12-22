@@ -1,0 +1,67 @@
+<!-- html5 文档申明 -->
+<!DOCTYPE html>
+<!-- 使用中文简体语言声明 -->
+<html lang="zh-CN">
+  <head>
+  	<!-- 字符编码 -->
+    <meta charset="utf-8">
+    <!-- 指明当前浏览器按最新的渲染引擎来渲染页面 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 视口：视口的宽度和设备一致，缩放比默认是1.0，不允许用户自行缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <!-- 页面的解析顺序从上到下 优先告诉浏览器用最新的引擎来渲染，并且告诉浏览器这是一个移动端界面 -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- 引入Bootstrap的核心样式库
+     -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- html5标签和媒体查询在IE8以下存在兼容问题，但是通过html5 shim 和 respond 两个东西解决 -->
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- 注意：不能以本地形式打开 可以用http形式 -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!-- html5shiv 解决标签兼容 -->
+    <!-- respond 媒体查询兼容 -->
+
+    <!-- 条件注释 在IE9一下生效 -->
+    <!--[if lt IE 9]>
+      <script src="lib/html5shiv/html5shiv.min.js"></script>
+      <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <h1>你好，世界！</h1>
+
+    <!-- Button trigger modal -->
+	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+	  Launch demo modal
+	</button>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Modal title</h4> 
+	      </div>
+	      <div class="modal-body">
+	        ...
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+	    </div>
+	  </div>
+	</div>
+	
+	<!-- jQuery 是bootstrap 必须依赖的库 -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="lib/jquery/jquery.min.js"></script>
+   	<!-- 引入bootstrap 核心js 文件 -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

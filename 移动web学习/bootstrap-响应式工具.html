@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+  	<!-- 字符编码 -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <title>响应式工具</title>
+
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="lib/html5shiv/html5shiv.min.js"></script>
+      <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+      .container {
+        height: 200px;
+        background-color: pink;
+      }
+      
+
+    </style>
+  </head>
+  <body>
+    <!-- 响应式容器 -->
+    <!-- 
+      1、要求在大屏设备 显示 头 内容 脚
+      2、在中等设备     显示 内容 脚
+      3、在小设备中     显示 脚
+      4、在超小屏设备   显示 无 
+    -->
+    <div class="container">
+      <header class="hidden-md hidden-sm hidden-xs" >头</header>
+      <section class="hidden-sm hidden-xs" >内容</section>
+      <footer class="hidden-xs" >脚</footer>
+    </div>
+
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

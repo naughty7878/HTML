@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0,minimum-scale=1.0" />
+	<title>Document</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		div {
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<script>
+		var dom = document.querySelector('div');
+
+		// touchstart：手指刚刚触摸到屏幕的时候，触发的事件
+	
+		// dom.atachEvent(); ie添加事件
+		// dom.addEventListener();  google 添加事件
+		dom.addEventListener('touchstart', function(e){
+			console.log('touchstart');
+			console.log('touchstart-Event', e);
+		});
+
+		// touchmove：手指在屏幕上，滑动的时候，会不停的触发
+		dom.addEventListener('touchmove', function(e){
+			console.log('touchmove');
+			console.log('touchmove-Event', e);
+		});
+
+		// 	touchend：手指离开屏幕的时候，触发的事件
+		dom.addEventListener('touchend', function(e){
+			console.log('touchend');
+			console.log('touchend-Event', e);
+		});
+	</script>
+</body>
+</html>

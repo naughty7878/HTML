@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		/** {
+			margin: 0;
+			padding: 0;
+		}*/
+		section {
+			width: 800px;
+			height: 500px;
+			background-color: pink;
+		}
+		section div:first-child {
+			
+			height: 200px;
+			background-color: purple;
+			float: left;	块级元素浮动之后，具有行内块的特性
+		}
+		section div:last-child {
+			width: 300px;
+			height: 250px;
+			background-color: skyblue;
+
+			/*float: left;*/	 
+		}
+		span {
+			background-color: palegreen;
+			height: 50px;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<section class="father">
+		<div class="son">熊大</div>
+		<div class="son">熊二</div>
+		
+	</section>
+	<span>鸣人</span>
+	<span>佐助</span>
+</body>
+</html>

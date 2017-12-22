@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.red {
+			color: red;
+		}
+		/*交集选择器*/
+		p.red { 
+			color: green;
+		}
+		/*并集选择器*/
+		span, h3, .you{
+			background-color: pink;
+		}
+		/*后代选择器*/
+		.huoyin p {
+			color: brown;
+		}
+
+		.nav li {
+			color: blue;
+		}
+
+		/*子元素选择器*/
+		.nav > li {
+			color: gray;
+		}
+
+		/*属性选择器*/
+		a[title] {
+			background-color: pink;
+		}
+
+		input[type=text] {
+			background-color: pink;
+		}
+
+		a[title*=新] {
+			color: red;
+		}
+		a[title$=鲜] {
+			background-color: red;
+		}
+		
+
+
+		/*伪元素选择器*/
+		p::first-letter { /*第一个字*/
+			color: red;
+			font-size: 50px;
+		}
+		p::first-line { /*第一行*/
+			color: green;
+		}
+		p::selection { /*选中文字时样式*/
+			color: pink;
+		}
+
+		.bef::before {
+			content: "new ";
+		}
+		.aft::after {
+			content: " over";
+		}
+	</style>
+</head>
+<body>
+	<!-- 符合选择器 -->
+	<div class="red">熊大</div>
+	<p>熊二</p>
+	<p class="red">光头强</p>
+	<div>刘德华</div>
+	<p class="you">张学友</p>
+	<span>郭富城</span>
+	<h3>黎明</h3>
+
+	<div class="huoyin">
+		<p>鸣人</p>
+	</div>
+	<div>
+		<p>佐助</p>
+	</div>
+	
+	<ul class="nav">
+		<li>一级菜单
+			<ul>
+				<li>二级菜单1</li>
+				<li>二级菜单2</li>
+				<li>二级菜单3</li>
+			</ul>
+		</li>
+	</ul>
+
+	<a href="#" title="百度">百度</a>
+	<a href="#" title="新浪">新浪</a>
+	<a href="#" title="新鲜">新鲜</a>
+	<a href="#" title="搜狐">搜狐</a>
+	<a href="#">土豆</a>
+	<input type="text" name="" value="文本框">
+	<input type="password" name="" value="">
+
+	<h2>freestyle</h2>
+	<p>英语词汇，的发撒法疗法京东方科技。的撒发达发达的放大地方大师傅士大夫士大夫阿斯顿发射点发生的发达省份士大夫士大夫士大，夫地方打算法大师。傅撒旦发射点发的是的发生的颠倒是非阿萨大大十分爱的色放</p>
+
+	<div class="bef aft">hello world!!!</div>
+</body>
+</html>

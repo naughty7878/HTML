@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .father {
+            width: 800px;
+            height: 400px;
+            background-color: pink;
+            margin: 100px auto;
+            position: relative;
+        }
+        .son {
+             width: 20%;/*相对于父级的百分比*/
+             height: 30%;
+             background-color: purple;
+             position: absolute;
+             top: 50%;
+             left: 50%;
+             transform: translate(-50%, -50%);/*相对于自己的百分比*/
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <!-- 绝对定位 水平垂直居中 -->
+     <div class="father">
+        <div class="son"></div>
+     </div>
+</body>
+</html>
+</html>

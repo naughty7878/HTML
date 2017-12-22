@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			font-size: 20px;
+		}
+		/*+选择器 先找到 选择器的元素； 然后找这个元素紧邻的下一个元素*/
+		.ind + li {
+			color: red;
+		}
+		/*~选择器 先找到 选择器的元素； 然后找这个元素 后面所有的统计元素*/
+		.bo ~ li {
+			color: blue;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li class="ind">1</li>
+		<li class="bo">2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+</html>

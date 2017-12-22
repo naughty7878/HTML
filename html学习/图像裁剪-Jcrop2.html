@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图像裁剪-Jcrop</title>
+	<link rel="stylesheet" href="css/jquery.Jcrop.css" type="text/css" />
+	<style>
+		img {
+			border: 0px;
+		}
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.head {
+			width: 600px;
+			height: 600px;
+			background-color: gray;
+		}
+		#target{
+			max-width: 600px;
+			max-height: 600px;
+		}
+
+		#preview-pane {
+			position: fixed;
+			top: 0;
+			right: 0;
+			width: 300px;
+			height: 300px;
+			overflow: hidden;
+			border: 1px solid purple;
+		}
+		#preview-pane .preview-container {
+			width: 100%;
+			height: 100%;
+		}
+		#preview-pane .preview-container img{
+			max-width: 100%;
+			max-height: 100%;
+
+		}
+	</style>
+</head>
+<body>
+	
+	<!-- 头像 -->
+	<div class="head" >
+		<img src="images/IMG_0109.JPG"  id="target" alt="[Jcrop Example]" />
+	</div>
+
+	<!-- 预览盒子 -->
+	<div id="preview-pane">
+		<div class="preview-container">
+			<img src="images/IMG_0109.JPG" class="jcrop-preview" alt="Preview"  id="Preview"/>
+		</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.Jcrop.js"></script>
+	<script type="text/javascript">
+
+		// 定义一些使用的变量
+		var 	jcrop_api,//jcrop对象
+				boundx,//图片实际显示宽度
+		        boundy,//图片实际显示高度
+		        realWidth,// 真实图片宽度
+		    	realHeight, //真实图片高度
+
+		    	// 使用的jquery对象
+		        $target = $('#target'),
+		        $preview = $('#preview-pane'),
+		        $pcnt = $('#preview-pane .preview-container'),
+		        $pimg = $('#preview-pane .preview-container img'),
+
+		        xsize = $pcnt.width(),
+		        ysize = $pcnt.height();
+
+		//初始化Jcrop插件
+		function initJcrop(){
+			 
+		    console.log('init',[xsize,ysize]);
+			$target.removeAttr("style");//清空上一次初始化设置的样式
+		    $target.Jcrop({
+		      onChange: updatePreview,
+		      onSelect: updatePreview,
+		      aspectRatio: xsize / ysize
+		    },function(){
+		    //初始化后回调函数
+			// 获取图片实际显示的大小
+			var bounds = this.getBounds();
+			boundx = bounds[0];//图片实际显示宽度
+			boundy = bounds[1];//图片实际显示高度
+
+			// 保存jcrop_api变量
+			jcrop_api = this;
+		      
+		    });  
+		}
+
+		//更新显示预览内容
+	    function updatePreview(c){
+			if (parseInt(c.w) > 0)
+			{
+				var rx = xsize / c.w;
+				var ry = ysize / c.h;
+
+				$pimg.css({
+					maxWidth:  Math.round(rx * boundx) + 'px',
+				    maxHeight: Math.round(ry * boundy) + 'px',
+				  	width: Math.round(rx * boundx) + 'px',
+				    height: Math.round(ry * boundy) + 'px',
+				    marginLeft: '-' + Math.round(rx * c.x) + 'px',
+				    marginTop: '-' + Math.round(ry * c.y) + 'px'
+				});				
+			}
+	    }
+
+	    window.onload = function () {
+            initJcrop();
+        };
+
+	</script>
+</body>
+</html>

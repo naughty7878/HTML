@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			transition: all 0.6s;
+		}
+		div:active {
+			/*transform: translate( 100px, 200px);*/
+			transform: translateX(50%);  /*只移动X轴 如果translate移动的是百分比，是自己的百分比，不是父级的*/
+			/*transform: translateY(200px);  只移动Y轴*/
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

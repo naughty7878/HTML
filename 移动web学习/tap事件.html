@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0,minimum-scale=1.0" />
+	
+	<title>tap事件的原理 手势事件</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		div {
+			width: 100%;
+			height: 200px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<script>
+	window.onload = function(){
+		var div = document.querySelector('div');
+		div.addEventListener('click', function(){
+			console.log('click');
+		});
+
+		/**
+		 * 1、肯定要比click响应块 150ms以内
+		 * 2、不能滑动
+		 * 称之为tap事件
+		 */
+
+
+		// 1、记录开始触摸屏幕的时间
+		var startTime = 0;
+		var isMove = false;
+		div.addEventListener('touchstart', function(){
+			console.log('touchstart');
+			// 给定一个参数开始记录时间
+			console.time('time');
+
+			startTime = Date.now();// 当前距离1970的毫秒数
+		});
+		div.addEventListener('touchmove', function(){
+			console.log('touchmove');
+			isMove = true;
+		});
+		// 2、更新现在比记录开始触摸的时间，  如果小于150ms 满足条件
+		div.addEventListener('touchend', function(){
+			console.log('touchend');
+			// 取出参数和现在的时间差
+			console.timeEnd('time');
+			console.log(Date.now() - startTime);
+
+
+			if(!isMove && Date.now() - startTime < 150)
+			{
+				console.log('tap事件');
+			}
+
+			startTime = 0;
+			isMove = false;
+		});
+	};
+	</script>
+</body>
+</html>

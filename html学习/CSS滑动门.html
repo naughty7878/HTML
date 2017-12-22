@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	a {
+		display: inline-block;
+		height: 33px;/*不能给宽度*/
+		background: url(images/slider.png) no-repeat;
+		padding-left: 16px;
+		color: #fff;
+	}
+	a span {
+		display: inline-block;
+		height: 33px;/*不能给宽度*/
+		line-height: 33px;
+		background: url(images/slider.png) no-repeat;
+		background-position: right;
+		padding-right: 16px;
+	}
+	a:hover {
+		background: url(images/slider2.png) no-repeat;
+	}
+	a:hover span{
+		background: url(images/slider2.png) no-repeat;
+		background-position: right;
+	}
+	</style>
+</head>
+<body>
+	<a href="#"><span>123</span></a>
+	<a href="#"><span>4567</span></a>
+	<a href="#"><span>891011</span></a>
+</body>
+</html>

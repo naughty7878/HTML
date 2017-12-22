@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div {
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+			transition: width 0.5s ease 0s,height 1s ease-in 1s;/*transition 写在div里面，而不是：hover 里面*/
+			/*transition: all 0.6s;*/
+		}
+		div:hover {
+			width: 500px;
+			height: 500px;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

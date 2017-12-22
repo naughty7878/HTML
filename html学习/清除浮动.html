@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.box1 {
+			width: 600px;
+			
+			background-color: pink;
+			/*overflow: hidden; 触发BFC BFC可以清除浮动*/
+		}
+		.box2 {
+			width: 600px;
+			height: 200px;
+			background-color: purple;
+		}
+		.son1 {
+			width: 150px;
+			height: 100px;
+			background-color: skyblue;
+			float: left;
+		}
+		.son2 {
+			width: 250px;
+			height: 100px;
+			background-color: hotpink;
+			float: left;
+		}
+		.clear {
+			clear: both;
+		}
+		.clearfix:after {
+			content: ".";   /*内容为小点，尽量加不要空，否则旧版本浏览器有空隙*/
+			display: block;
+			height: 0; /*高度为0*/
+			visibility: hidden;
+			clear:both;
+		}
+		.clearfix {
+			*zoom: 1; /**代表ie6、7能识别的 zoom是ie6、7清除浮动的方法*/
+ 
+		}
+	</style>
+</head>
+<body>
+	<div class="box1 clearfix">
+		<div class="son1"></div>
+	<div class="son2"></div>
+		<!-- 方法一：在浮动盒子后面添加一个空盒子 -->
+		<!--   -->
+	</div>
+	<div class="box2">
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div:first-child {
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			/*animation: 动画名称 动画时间 运动曲线 何时开始 播放次数 是否反方向;*/
+			/*go 为动画名称*/
+			/*infinite 无限循环*/
+			/*一般情况下，使用前2个 animation: go 2s;*/
+			animation: go 2s ease 0s 2 normal;/*引用动画*/
+
+		}
+		@keyframes go {/*定义动画*/
+			from {
+				transform: translateX(0);
+			}
+			to {
+				transform: translateX(600px);
+			}
+		}
+		div:last-child {
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			animation: cc 5s infinite;
+		}
+		@keyframes cc {/*定义动画*/
+			0% {
+				transform: translate(0, 0);
+			}
+			25% {
+				transform: translate(500px, 0);
+			}
+			50% {
+				transform: translate(500px, 400px);
+			}
+			75% {
+				transform: translate(0, 400px);
+			}
+			100% {
+				transform: translate(0, 0);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+
+
+// adapter mixin 
+
+
+// 适配主流设备
+// 640px 750px 设计稿
+// 需要设置对应的基准值
+// 750px的设计稿 假设100px 
+// 在psd图量取的尺寸px 通过基准值转换成rem
+
+// 设备的尺寸  320px 360px 375px 384px 400px 414px 424px 480px 540px 720px 750px
+// 每一种设备有对应的fontSize大小
+
+
+
+
+// .adapterFun(@deviceWidth) {
+// 	@media (min-width: @deviceWidth) {
+// 	html {
+// 			font-size: @deviceWidth/@psdWidth*@baseSize;
+// 		}
+// 	}
+// }
+// .adapterFun(320px);
+
+// length(@deviceWidthList) 内置行数获取数组的长度
+// extract(@deviceWidthList, 1) 从数组中取值,序号从1开始
+
+// body {
+// 	height: extract(@deviceWidthList, 1);
+// }
+
+// @index 指的是数组的序号 when 满足这个条件 当前序号要小于等于数组长度
+.adapterFun(@index) when (@index <= length(@deviceWidthList)){
+	@media (min-width: extract(@deviceWidthList, @index)) {
+		html {
+			font-size: extract(@deviceWidthList, @index)/@psdWidth*@baseSize;
+		}
+	}
+
+	// 自调用
+	.adapterFun(@index+1);
+}

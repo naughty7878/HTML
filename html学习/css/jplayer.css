@@ -1,0 +1,70 @@
+/*CSS初始化样式 */
+* {
+	margin: 0; /*清除内外边距*/
+	padding: 0;
+}
+ul {
+	list-style: none; /*去掉列表样式*/
+}
+.clearfix:before, .clearfix:after {
+	display: table;
+	content: "";
+}
+.clearfix:after {
+	clear: both;
+}
+.clearfix {
+	*zoom: 1; /*IE6/7 兼容*/
+}
+input {
+	border: 0; /*所有的表单边框为0*/
+	box-sizing: border-box; /*CSS盒子模型 border 和 padding 都包含到 width 里面去*/
+}
+a {
+	text-decoration: none; /*取消下划线*/
+}
+
+
+.jp-video{
+	position: relative;
+    overflow: hidden;
+    display: inline-block;
+    border: 1px solid red;
+}
+
+.jp-gui{
+	position: absolute;
+    bottom: 0;
+    width: 100%;
+    border: 1px solid blue;
+}
+.jp-no-solution{
+	position: absolute;
+	width: 100%;
+    bottom: 0;
+}
+
+/*屏幕按钮*/
+.jp-video-play {
+    width: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0);
+}
+
+
+/*进度条*/
+.jp-video .jp-progress {
+    top: 0px;
+    height: 3px;
+    background: rgba(255,255,255,0.2);
+}
+.jp-seek-bar {
+    background: gray;
+    height: 100%;
+    cursor: pointer;
+}
+.jp-play-bar {
+    background: orange;
+    height: 100%;
+}

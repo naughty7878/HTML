@@ -1,0 +1,23 @@
+@charset "utf-8";
+/*1、这样的注释是会编译到css当中 css也支持*/
+// 这样的注释 没有编译到css文件中
+
+// 变量
+// js var a = 10;  
+// 1、必须以@符号开头
+// 2、不能以数组开头
+// 3、不能包含特殊字符
+@mainColor: #e92333;
+
+a:hover {
+	color: @mainColor;
+}
+
+body {
+	background-color: @mainColor;
+	color: red;
+}
+
+div {
+	border: 1px solid @mainColor;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		div {
+			background-color: pink;
+			margin-top: 10px;
+		}
+		span {
+			background-color: skyblue;
+			margin-left: 50px;
+			margin-top: 50px; 	/*无效*/
+			width: 200px;	/*无效*/
+			height: 200px;	/*无效*/
+		}
+		input {
+			margin-top: 50px;
+		}
+		.change-line {
+			display: inline;
+			background-color: orange;
+		}
+		.change-block {
+			display: block;
+			background-color: yellow;
+		}
+		a {
+			display: inline-block;
+			background-color: green;
+			margin-top: 60px;
+			height: 60px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 块级元素 --><hr />
+	<div>块123</div>
+	<div>块456</div>
+	<div>块789</div>
+
+	<!-- 行级元素 --><hr />
+	<span>行123</span>
+	<span>行456</span>
+	<span>行789</span>
+
+	<!-- 行内块级标签 --><hr />
+	<input type="text" name="" />
+
+	<!-- 标签级转换 --><hr />
+	<div class="change-line">块级转行级123</div>
+	<div class="change-line">块级转行级456</div>
+	<div class="change-line">块级转行级789</div>
+
+	<span class="change-block">行级转块级123</span>
+	<span class="change-block">行级转块级456</span>
+	<span class="change-block">行级转块级789</span>
+
+	<a href="#">行级转行内块123</a>
+	<a href="#">行级转行内块456</a>
+	<a href="#">行级转行内块789</a>
+</body>
+</html>

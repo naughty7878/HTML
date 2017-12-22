@@ -1,0 +1,43 @@
+@charset "utf-8";
+/*  */
+/* 样式类名 mixin */
+/* 组合样式 左浮动 右浮动 宽度50% 左边框 右边框 */
+.f_left {
+  float: left;
+}
+.f_right {
+  float: right;
+}
+.b_left {
+  border-left: 1px solid #ccc;
+}
+.b_right {
+  border-right: 1px solid #ccc;
+}
+/* 需要 所浮动左边框 */
+/* 通过 左浮动 左边框 混入 到了FLBL */
+.FLBL {
+  float: left;
+  border-left: 1px solid #ccc;
+}
+/* 函数 mixin */
+/* 类名后加括号，定义一个方法 */
+.MLPL {
+  margin-left: 15px;
+  padding-left: 15px;
+}
+/* 定义一个可以传参的方法 */
+/* 方法参数 @direction:left 定义参数，必须要有默认值 */
+/* 方法中使用变量，直接使用变量名称就可以 */
+/* 拼接变量的时候 @{direction} */
+/* 圆角方法 */
+.MLB {
+  margin-left: 15px;
+  float: right;
+  border-right: 1px solid #ccc;
+  border-radius: 20px;
+  -webkit-border-redius: 20px;
+  -moz-border-redius: 20px;
+  -ms-border-redius: 20px;
+  -o-border-redius: 20px;
+}

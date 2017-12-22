@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* 运算 */
+.col-xs-1 {
+  width: 6.66666667%;
+  padding: 0 6px;
+  color: #666666;
+}
+/* 内置函数 */
+.color {
+  color: #ff3333;
+}
