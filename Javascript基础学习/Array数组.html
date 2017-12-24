@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Array数组</title>
+	<script type="text/javascript">
+		var a = new Array(); //创建一个数组;
+		a[0] = 81;	//给数组第一个元素赋值
+		a[1] = 82;
+		a[2] = 84;
+		a[3] = 91;
+		a[4] = 71;
+
+		console.log(a[2]);
+		console.log("数组的长度：" + a.length);
+
+		for (var i = 0; i < a.length; i++) {
+			
+			console.log(a[i]);
+		}
+
+		for (j in a)
+		{
+			console.log(a[j]);
+		}
+
+		var b = new Array();
+		b[0] = 99;
+		console.log(b.concat(a));
+		console.log(a.join());
+		console.log(a.join("|"));
+		console.log(a.sort());
+	</script>
+</head>
+<body>
+
+</body>
+</html>

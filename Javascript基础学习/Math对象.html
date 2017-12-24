@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Math对象</title>
+	<script type="text/javascript">
+		console.log(Math.pow(2, 10));
+		console.log(Math.pow(27, 1/3));
+		console.log(Math.round(0.6));
+		console.log(Math.ceil(0.6));
+		console.log(Math.floor(0.6));
+		console.log(Math.abs(-5));
+		console.log(Math.max(1, 3, 2));
+		console.log(Math.min(1, 3, 2));
+		console.log(Math.random());
+		console.log("------------------------------");
+
+		console.log("-------------作业-----------------");
+		console.log("1、写一个程序，要求用户输入鸡蛋数，如果20个鸡蛋放一盒，判断要多少个盒子。");
+		var num = prompt("第一题：\n请输入鸡蛋的数量");
+		alert(Math.ceil(num/20));
+
+		console.log("2、写一个程序，输入人数，每10人一列，要求站成一个方队（每队必须保持10人，不够就不要了），可以排多少列，余多少人。");
+
+		var peopleNum = prompt("第二题：\n请输入人数");
+		alert("可以排" + Math.floor(peopleNum/10) + "列\n余" + peopleNum%10 + "人");
+
+		console.log("3、写一个程序，随机生成三个数，分别输出，并且比较这三个数的大小。（1.0用math函数做，2.0用自己的方法做）");
+
+		var num1 = Math.random();
+		var num2 = Math.random();
+		var num3 = Math.random();
+
+		console.log("num1==" + num1 + "\nnum2==" + num2 + "\nnum3==" + num3);
+		console.log("最大值是：" + Math.max(num1, num2, num3));
+		console.log("最小值是：" + Math.(num1, num2, num3));
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

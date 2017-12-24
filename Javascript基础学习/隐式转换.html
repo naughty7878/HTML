@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>隐式转换</title>
+	<script type="text/javascript">
+		var a = "123";
+		console.log(typeof +a);
+		console.log(typeof (a - 0));
+		console.log(typeof (a * 1));
+		console.log(typeof (a / 1));
+		console.log(typeof (a % 10000));
+
+		console.log("-------隐式转字符串-------");
+		console.log(typeof(123+""));
+
+		console.log("-------隐式转Boolean-------");
+		console.log(typeof(!!123));
+	</script>
+</head>
+<body>
+
+</body>
+</html>

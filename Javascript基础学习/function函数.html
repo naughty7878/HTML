@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>function函数</title>
+	<script type="text/javascript">
+		//函数的定义
+		function gaobai(){
+
+			console.log("我爱你");
+		}
+
+		//函数的调用
+		gaobai();
+
+		//带参数的函数
+		function sum(num1, num2){
+			console.log(num1 + num2);
+			// 函数的返回值
+			return num1 + num2;
+		}
+		//给未声明的变量赋值，变量转为全局变量
+		s = sum(1, 2);
+		console.log(s);
+
+		console.log(gaobai());	
+	</script>
+</head>
+<body>
+
+</body>
+</html>
