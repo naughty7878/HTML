@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>函数没有重载</title>
+	<script type="text/javascript">
+		function f1(a, b) {
+			return a + b;
+		}
+		function f1(a, b, c) {
+			return a + b + c;
+		}
+		console.log(f1(1, 3));//调用的是第二个，下面的函数会把前面的覆盖
+		//函数调用的时候，实参的个数可以不用和形参的个数相等
+	</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>函数面试题</title>
+	<script type="text/javascript">
+		/*
+		* 浏览器的解析器
+		* 
+			全局作用域
+			1、预解析：先找var、function 和 参数
+			2、找到var、funciton之后，会把var和function提取
+			3、从上之下执行
+			执行到function后，进入局部作用域
+			1、预解析、先找var、function 和 参数
+			2、找到var、funciton之后，会把var和function提取
+			3、从上之下执行
+		*/
+		/*1--------------*/
+		var num = 10;
+		fun();
+		function fun(){
+			console.log(num); 
+			var num = 20;
+		}
+		/*1===》
+			var num;
+			num = 10;
+			function fun(){
+				var num;
+				console.log(num); 
+				num = 20;
+			}
+			fun();
+			所以输出是undefined
+
+		*/
+		/*2--------------*/
+		var a = 18;
+		f1();
+		function f1(){
+			var b = 9;
+			console.log(a);
+			console.log(b);
+			var a = '123';
+		}
+
+		/*3--------------*/
+		fun1();
+		console.log(g);
+		console.log(f);
+		console.log(e);
+		function fun1(){
+			var e = f = g = 3;
+			console.log(e);
+			console.log(f);
+			console.log(g);
+		}
+		/*3===>
+		function fun1(){
+			var e = f = g = 3;
+			console.log(e);
+			console.log(f);
+			console.log(g);
+		}
+		fun1();
+		console.log(g);
+		console.log(f);
+		console.log(e);
+		*/
+
+		// 变量提升：定义变量的时候，变量的声明会被提升到作用域的最上面，变量的赋值不会提升。
+		// 函数提升：JavaScript解析器首先会把当前作用域的函数声明提前到整个作用域的前面
+
+		//函数的声明和函数表达式的区别
+		//普通函数与匿名函数的区别
+		//匿名函数：没有命名的函数，一般用于绑定事件的时候。
+
+		/**
+			自调用函数：只能执行一次
+			例子：-(function(){alert('hello!');})();
+			说明：前面小括号是一个整体 后面小括号调用
+		*/
+	</script>
+</head>
+<body>
+
+</body>
+</html>
