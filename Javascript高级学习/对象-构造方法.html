@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>构造方法</title>
+	<script type="text/javascript">
+		// 自定义构造函数  --- 构造函数：构造一个对象，并且返回的函数
+		// 调用构造函数 var student = new Object;
+
+		function Person(name, age, sex) {
+			//对象的属性	
+			this.name = name;
+			this.age = age;
+			this.sex = sex;
+
+			//对象的方法
+			this.sayHi = function(){
+				console.log("大家好！我是" + this.name);
+			}
+		}
+
+		//1 内存开辟空间，存储新创建的对象new Object();
+		//2 会把this设置为当前对象
+		//3 执行函数内部的代码，设置对象的属性和方法；
+		//4 返回新创建的对象
+		var p1 = new Person("张三", 18, 1);
+		var p2 = new Person("李四", 20, 0);
+		p1.sayHi();
+		p2.sayHi();
+
+		//对象：无序属性的集合，可以把对象看成键值对
+
+		//属性
+		console.log(p1.name);
+		console.log(p1["name"]);//这样也行
+
+		for (var i = 0; i < 10; i++) {
+			// 动态给对象增加属性
+			p1["n" + i] = i;
+		}
+		console.log(p1);
+
+
+
+		function test(){
+			//此时this是window，因为是window调用了此函数
+			console.log(this);
+		}
+		//以下两种调用方法一样，一般可以省略window
+		test();
+		window.test();
+	</script>
+</head>
+<body>
+
+</body>
+</html>

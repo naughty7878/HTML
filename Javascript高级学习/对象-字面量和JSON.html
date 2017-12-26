@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>字面量</title>
+	<script type="text/javascript">
+		// 数组的字面量 var arr = [];
+		// 构造方法创建数组 var arr = new Array();
+
+		// 构造方法创建对象 var obj = new Object();
+		// 对象的字面量	var person = {}
+		var person = {
+			name: "张三",
+			age: 18,
+			sex: 1,
+			sayHi: function(){
+				console.log("大家好！我是" + this.name);
+			}
+		}
+		person.sayHi();
+
+
+
+		/*
+		JSON:  	JavaScript Object Notaion (JavaScript对象表示形式)
+				JavaScript的子集
+
+		json和对象字面量的区别，属性需要使用双引号引起
+		json是描述数据的一种规范
+		*/
+		var json = {
+			"name": "张三",
+			"age": 18,
+			"sex": 1
+		};
+
+
+		//遍历对象属性
+		for(var key in person){
+			console.log(key);
+			// console.log(person.key); 获取person对象那个的key属性，key属性未定义
+			console.log(person[key]);//或去对应属性的值
+		}
+
+		//遍历数组对象的属性和方法
+		//有些系统提供的对象的属性和方法无法遍历，原因属性和方法被设置为不可遍历
+		var arr = new Array();
+		for(var key in arr) {
+			console.log(key);
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

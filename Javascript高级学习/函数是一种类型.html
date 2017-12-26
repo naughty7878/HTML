@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>函数是一种类型</title>
+    <script type="text/javascript">
+    	//函数是一种类型 function
+	    var myFun = function() {
+	    	console.log("hello!");
+	    }
+	    console.log(typeof myFun);
+
+	    //函数作为参数
+	    function getResult(a, b, fn) {
+	    	return fn(a, b);
+	    }
+	    var result = getResult(2, 3, function(a, b){
+	    	return a + b;
+	    });
+	    console.log(result);
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

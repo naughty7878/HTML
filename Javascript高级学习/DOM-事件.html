@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body {
+            font-family: "Helvetica","Arial",serif;
+            color: #333;
+            background-color: #ccc;
+            margin: 1em 10%;
+        }
+        h1 {
+            color: #333;
+            background-color: transparent;
+        }
+        a {
+            color: #c60;
+            background-color: transparent;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        ul {
+            padding: 0;
+        }
+        li {
+            float: left;
+            padding: 1em;
+            list-style: none;
+        }
+        #imagegallery {
+
+            list-style: none;
+        }
+
+        #imagegallery li {
+            margin: 0px 20px 20px 0px;
+            padding: 0px;
+            display: inline;
+        }
+
+        #imagegallery li a img {
+            border: 0;
+        }
+    </style>
+
+</head>
+<body>
+<a id="link" href="http://www.baidu.com" onclick="alert('aaa');return false;">baidu</a>
+<a id="link1" href="http://www.baidu.com">baidu</a>
+
+<h2>
+    美女画廊
+</h2>
+
+<ul id="imagegallery">
+    <li><a href="images/1.jpg" title="美女A">
+        <img src="images/1-small.jpg" width="100"  alt="美女1" />
+    </a></li>
+    <li><a href="images/2.jpg" title="美女B">
+        <img src="images/2-small.jpg" width="100" alt="美女2" />
+    </a></li>
+    <li><a href="images/3.jpg" title="美女C">
+        <img src="images/3-small.jpg" width="100" alt="美女3" />
+    </a></li>
+    <li><a href="images/4.jpg" title="美女D">
+        <img src="images/4-small.jpg" width="100" alt="美女4" />
+    </a></li>
+</ul>
+
+<div style="clear:both"></div>
+
+<img id="image" src="images/placeholder.png" alt="" width="450px" />
+
+<p id="des">选择一个图片</p>
+
+
+
+<script>
+    // 占位图片生成地址--> http://placehold.it/400x250
+    var link1 = document.getElementById("link1");
+    console.log(link1);
+    //标签对象有什么属性，即能使用属性名调用
+    console.log(link1.id);
+    console.log(link1.href);
+    link1.onclick = function(){
+        alert("baidu");
+        return false;
+    };
+    //事件三要素：事件源（触发link1）、事件处理程序（onclick）、事件名称（click）
+
+    //1 能够点击
+    // 获取页面上的标签
+
+
+    //2 改变图片
+
+    //3 改变标题
+</script>
+</body>
+</html>

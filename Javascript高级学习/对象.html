@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>对象</title>
+	<script type="text/javascript">
+		/*
+		对象：具有特征和行为
+		面向对象：
+			可以创建自定义的类型、很好的支持继承和多态。
+			面向对象特征：封装、继承、多态
+			万物皆对象：世间的一切事物都可以用对象来描述
+		基于对象：
+			无法创建自定义的类型、不能很好的支持继承和多态。基于对象的语言JavaScript
+
+		*/ 
+		/* 函数和方法的区别
+			1、函数：直接调用的是函数
+			2、方法：通过对象调用的是方法
+		*/
+		// 创建一个对象
+		// 构造函数的命名：第一个字母大写
+		// 1 内存中开辟空间，创建了一个对象
+		// 2 返回刚刚创建的对象
+		var hero = new Object();
+		// 属性--特征
+		hero.name = "nb";
+		hero.level = 0;	// 等级
+		hero.diamond = 0; // 砖石
+		// 方法--行为 
+		hero.moveLeft = function () {
+			console.log('left');
+		};
+		hero.attack = function (name) {
+			//只有在当前对象中使用this，才是当前对象
+			console.log(this.name + ' attck: ' + name);
+		}
+
+		//获取对象的属性值
+		console.log(hero.name);
+		//调用对象的方法
+		hero.attack("enemy");
+
+
+
+
+
+
+		function createStudent (name, age, sex) {
+			var student = new Object();
+			//对象属性
+			student.name = name;
+			student.age = age;
+			student.sex = sex;
+			//对象方法
+			student.sayHi = function () {
+				console.log("大家好！我是" + this.name);
+			}
+
+			return student;
+		}
+
+		var stu1 = createStudent('张三', 18, 1);
+		var stu2 = createStudent('李四', 19, 0);
+		stu1.sayHi();
+		stu2.sayHi();
+	</script>
+</head>
+<body>
+
+</body>
+</html>
