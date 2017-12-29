@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>传统做法</title>
+	<style type="text/css">
+		div, p {
+			width: 100px;
+			height: 30px;
+			border: 1px solid red;
+			margin: 10px 0;
+		}
+	</style>
+	<script type="text/javascript" src="../lib/jquery/jquery.min.js"></script>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<p></p>
+	<p></p>
+	<script type="text/javascript">
+		
+		var arr = [1, 2, 3, 4, 3 ];
+		
+		$.each(arr, function(i, v) {
+			console.log("i===" + i + ",v===" + v);
+			if(v === 3) 
+				return false;
+		});
+
+		$.each(arr, function(i, v) {
+			console.log(this);
+		});
+		
+	</script>
+</body>
+</html>

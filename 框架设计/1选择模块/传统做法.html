@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>传统做法</title>
+	<style type="text/css">
+		div, p {
+			width: 100px;
+			height: 30px;
+			border: 1px solid red;
+			margin: 10px 0;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<p></p>
+	<p></p>
+	<script type="text/javascript">
+		
+
+		// 函数化
+		var g = function(tag) {
+			return document.getElementsByTagName(tag);
+		}
+		var divs = g("div");
+		var ps = g("p");
+
+		//性能
+		var each = function (arr) {
+			//遍历
+			for (var i = 0; i < arr.length; i++) {
+				arr[i].style.backgroundColor = "blue";
+			}
+		}
+
+		each(divs);
+		each(ps);
+	</script>
+</body>
+</html>

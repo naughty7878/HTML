@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>传统做法</title>
+	<style type="text/css">
+		div, p {
+			width: 100px;
+			height: 30px;
+			border: 1px solid red;
+			margin: 10px 0;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<p></p>
+	<p></p>
+	<script type="text/javascript">
+		// 传统的处理方式，就是使用函数获取
+		//1、获取所有元素
+		
+		var divs = document.getElementsByTagName('div');
+		var ps = document.getElementsByTagName('p');
+		console.log(divs);
+		console.log(ps);
+		//2、遍历添加样式
+		for (var i = 0; i < divs.length; i++) {
+			divs[i].style.backgroundColor = "pink";
+		}
+		for (var i = 0; i < ps.length; i++) {
+			ps[i].style.backgroundColor = "pink";
+		}
+		/*
+		传统做法
+			1、待用冗余
+			2、丑
+			3、不能复用
+			4、容错率低
+			5、效率低
+			6、性能低。。。。
+		*/
+
+		
+	</script>
+</body>
+</html>

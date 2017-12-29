@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>传统做法</title>
+	<style type="text/css">
+		div, p {
+			width: 100px;
+			height: 30px;
+			border: 1px solid red;
+			margin: 10px 0;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<p></p>
+	<p></p>
+	<script type="text/javascript">
+		
+		var arr = [1, 2, 3, 4 ];
+		// 1、求和
+		var sum = 0;
+		for (var i = 0; i < arr.length; i++) {
+			sum += arr[i]
+		}
+		console.log(sum);
+
+		// 2、求最大值
+		var max = 0;
+		for (var i = 0; i < arr.length; i++) {
+			if(arr[i] > max)
+				max = arr[i];
+		}
+
+		// 3、求最小值
+		var min = 0;
+		for (var i = 0; i < arr.length; i++) {
+			if(arr[i] < max)
+				min = arr[i];
+		}
+
+		//4、找3
+		var find3 = -1;
+		for (var i = 0; i < arr.length; i++) {
+			if(arr[i] === 3) {
+				find3 = i;
+				break;
+			}
+		}
+
+		var each = function (arr, fn) {
+			for (var i = 0; i < arr.length; i++) {
+				fn(i, arr[i]);
+			}
+		}
+
+		each (arr, function(i, v){
+			sum += v
+		});
+
+		var mmax = arr[0];
+		each (arr, function(i, v) {
+			if (max < v) {
+				max = v;
+			}
+		});
+
+		var ffind3 = -1;
+		each (arr, function(i, v) {
+			if (3 === v) {
+				ffind3 = i;
+			}
+		});
+		console.log("ffind3 == " + ffind3);
+	</script>
+</body>
+</html>
