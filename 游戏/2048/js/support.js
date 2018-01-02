@@ -65,9 +65,9 @@ function getNumberColor(number) {
 
 // 判断格子是否有无空余
 function nospace(board) {
-    for (var i = 0; i < 4; i++) {
-        for (var j = 0; j < 4; j++) {
-            if (board[i][j] == 0) {
+    for (var row = 0; row < 4; row++) {
+        for (var col = 0; col < 4; col++) {
+            if (board[row][col] == 0) {
                 return false;
             }
         }
