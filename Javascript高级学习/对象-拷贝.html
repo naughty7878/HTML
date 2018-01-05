@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>拷贝</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		/**
+		 *  拷贝：复制一份将对象数据复制
+		 *	深拷贝：拷贝的时候，将数据的所有引用结构拷贝一份，那么数据在内存中独立。
+		 *  浅拷贝: 拷贝的时候，只针对当前对象的属性进行拷贝，那么就是浅拷贝
+		 *  封装：利用面向对象的思想，一般会让对象带有一个copy的方法，来完成自己的拷贝i
+		 */
+		var car = {name: '法拉利'};
+		var p = {name : '张三', age : 19, car: car};
+
+		// var pCopy = p; 这不是拷贝，没有对对象做任何行为
+		//浅拷贝的实现
+		var pCopy = {};
+		pCopy.name = p.name;
+		pCopy.age = p.age;
+		pCopy.car = p.car;
+
+		//深拷贝的实现
+		var pDeep = {};
+		pDeep.name = p.name;
+		pDeep.age = p.age;
+		pDeep.car = {};
+		pDeep.car.name = p.car.name;
+
+
+		// 对象封装浅拷贝
+		var person = {
+			name: '张三',
+			age: 19,
+			gender: '男',
+			copy: function(){
+				// 1创建对象
+				var temp = {};
+				// 2拷贝属性
+				for (var k in this) {//this 在函数（方法）内部，表示调用该函数的对象
+					temp[k] = this[k];
+				}
+				// 3返回对象
+				return temp;
+			}
+		};
+
+		var p1 = person.copy();
+		person.name = '李四';
+		console.log(person);
+		console.log(p1);
+
+
+		// 对象封装深拷贝
+		var car = {
+			name: '法拉利',
+			deepCopy: function (){
+				// 1创建对象
+				var temp = {};
+				// 2拷贝
+				for (var k in this) {//this 在函数（方法）内部，表示调用该函数的对象
+					if(this[k] === 'object')
+					{
+						temp[k] = this[k].deepCopy();
+					}else {
+						temp[k] = this[k];
+					}
+					
+				}
+				// 3返回对象
+				return temp;
+			}
+		}
+		var human = {
+			name: '张三',
+			car: car,
+			deepCopy: function (){
+				// 1创建对象
+				var temp = {};
+				// 2拷贝
+				for (var k in this) {//this 在函数（方法）内部，表示调用该函数的对象
+					if(this[k] === 'object')
+					{
+						temp[k] = this[k].deepCopy();
+					}else {
+						temp[k] = this[k];
+					}
+					
+				}
+				// 3返回对象
+				return temp;
+			}
+		};
+	</script>
+</body>
+</html>

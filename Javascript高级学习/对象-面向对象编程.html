@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>对象-面向对象编程</title>
+
+</head>
+<body>
+	<script type="text/javascript">
+		// 1、首先要找对象
+		// 2、 任何操作应该交给对象完成
+
+		// 任务需求
+		// a、创建一个div标签
+		var div = document.createElement('div');
+		// b、将div加到页面中
+		document.body.appendChild(div);
+		// c、设置div的样式
+		div.style.border = '1px solid red';
+		div.style.width = '400px';
+		div.style.height = '300px';
+
+		// 面向对象的方式去思考
+		// 1、抽取对象（名词提炼法）：div，body
+		// 2、分析属性与方法（动词提炼法）：加到，设置样式
+
+		// 需要一个div 的构造函数
+		function DivTag() {
+			this.DOM = document.createElement('div');
+
+			this._add = function (node) {
+				// 需要将this.DOM 加到node 中
+				node.appendChild( this.DOM );
+			}
+			this._set = function (name, value) {
+				// 设置this.DOM 的样式
+				this.DOM.style[name] = value;
+			}
+			this.css = function(option){
+				for (var k in option) {
+					this.DOM.style[k] = option[k];
+				}
+			}
+		}
+
+		var divTag = new DivTag();// 内部应该创建dom 
+		// 构造函数内部应该创建dom 对象div， 同时将其设置未属性
+		divTag._add(document.body);
+		divTag._set('border', '1px solid purple');
+		divTag._set('width', '200px');
+		divTag._set('height', '100px');
+		divTag._set('backgroundColor', 'pink');
+		divTag.css({
+			'borderRadius' : '20px'
+		});
+
+		//new DivTag()._add().css();  不能这样使用
+
+		function PTag() {
+			this.DOM = document.createElement('p');
+
+			this.appendTo = function (node) {
+				// 需要将this.DOM 加到node 中
+				node.appendChild( this.DOM );
+				return this;
+			}
+			
+			this.css = function(option){
+				for (var k in option) {
+					this.DOM.style[k] = option[k];
+				}
+				return this;
+			}
+		}
+
+		new PTag().css({
+			'border' : '1px solid orange',
+			'width' : '200px',
+			'height' : '200px'
+		}).appendTo(document.body);
+	</script>
+</body>
+</html>
