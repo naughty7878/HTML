@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>异常</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/**
+			异常：就是程序运行过程中出现的初五。
+
+			在js中，出现异常，浏览器会给出一段错误代码，就是错误消息。错误消息（错误类型与错误信息构成）
+			
+			常见的异常有两大类：
+			1、运行环境的多边形
+			2、语法错误，代码错误
+
+			try-catch 语法
+			try {
+				可能出现错误的代码
+			} catch (e) {
+				处理错误的代码
+			} finally {
+				最后执行的代码
+			}
+			a、代码正常运行，如果try中出现错误，直接调到catch中执行代码，catch中处理错误信息，然后继续执行后面的代码
+			b、若果try中没有出现错误，那么不执行catch中的代码
+			
+			抛出异常
+			throw 对象
+			1、throw是抛出异常的语法，其后跟一个对象，即错误对象
+			2、一般该对象使用 new Error('错误消息') 来创建，也支持任意对象
+
+
+		*/
+		try {
+			console.log(abc);
+			console.log(11111);
+		}catch (e) {
+			console.log( '异常： ' + e );
+			console.log(22222);
+		}finally {
+			console.log('finally');
+		}
+		console.log(123);
+
+		console.log(1);
+
+		try {
+			//throw {name : '错误消息' };
+			throw new Error('错误消息');
+			console.log(2);
+		}catch (e) {
+			console.log( '异常： ' + e );
+			console.log(3);
+		}
+		
+		
+		
+		console.log(4);
+		console.log(5);
+
+	</script>
+</body>
+</html>
