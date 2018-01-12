@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>原型prototype</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		原型prototype
+			* 由于js是解析执行的语言，那么代码在出现函数与对象重复执行，会创建多个副本
+			* 传统的构造方法中，对象的方法写在构造方法中，就会重复执行，优化把方法提出来，放发外面；隐患与其他库可能产生冲突
+		任意一个对象都会默认的链接到它的原型中
+			* 创建一个函数，会附带的创建一个特殊的对象。该对象使用 函数.proptotype 引用	,称其为函数的原型属性
+			* 每一个由该函数作为构造函数创建的对象，都会默认的链接到该对象中
+			* 在该对象访问一个方法或属性的时候，如果该对象中没有，就会到这个神秘对象中查找
+
+
+		*/
+
+
+		var arr = [];
+		for (var i = 0; i < 2; i++) {
+			arr.push({});
+		}
+
+		console.log(arr[0] == arr[1]);//false
+
+
+		function Person(name, age, gender) {
+			this.name = name;
+			this.age = age;
+			this.gender = gender;
+			this.sayHello = function(){
+				console.log( '你好');
+			};
+		}
+
+		var p1 = new Person();
+		var p2 = new Person();
+		console.log(p1.sayHello == p2.sayHello);//false;
+
+		function Dog(){
+
+		}
+		console.log( Dog.prototype) ;
+		Dog.prototype.name = 'dog';
+
+		var d1 = new Dog();
+		console.log(d1.name);//若果d1没有name ，那么就会到Dog.prototype中找
+		console.log(Dog._prototype_ === d1.prototype);//指向统一对象
+
+	</script>
+</body>
+</html>

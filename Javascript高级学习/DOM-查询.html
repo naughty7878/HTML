@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM-查询</title>
+</head>
+<body hd="hd">
+		我是文本节点
+
+	<div class="cdiv" id="mydiv" name="ndiv"><span>123</span></div>
+	<script type="text/javascript">
+		/**
+		获取元素
+			1、标准DOM API
+				* document.getElementById
+				* document.getElementsByTagName
+				* document.getElementsByName
+				* document.getElementsByClassName
+				* document.querySelector
+				* document.querySelectorAll
+			2、亲属访问
+			3、属性获取
+				* getAttribute
+				* getAttributeNode
+
+		增加
+			1、创建
+				* document.createElement 	创建元素节点
+				* document.createTextNode	创建文本节点
+				* document.createAttribute  创建节点
+				* innerHTML
+				* innerText
+				* cloneNode()
+			2、加入
+				* appendChild				追加到结尾处
+				* innerHTML
+				* insertBefore				将新元素插入到旧元素的前面	父元素.insertBefore(新元素, 旧元素);
+			3、其他
+				* style的操作
+				* setAttribute(属性名，属性值)
+		删除
+			1、删除元素
+				* removeChild
+				* removeAttributeNode
+		修改
+			1、修改节点
+				* 删除节点，在加入
+			2、修改样式
+				* style.xxx = vvv;
+				* setAttribute 
+			3、修改文本
+				* innnerHTML
+				* innerText
+				* 节点操作
+				* nodeValue
+			4、修改属性
+				* .xxx = vvv
+				* setAttribute
+				 
+		*/
+		//获取元素
+		console.log(document.getElementById('mydiv'));
+		console.log(document.getElementsByTagName('div')[0]);
+		console.log(document.getElementsByName('ndiv')[0]);
+		console.log(document.getElementsByClassName('cdiv')[0]);
+		console.log(document.querySelector('#mydiv'));
+		console.log(document.querySelectorAll('div')[0]);
+
+		//创建
+		console.log(document.createElement('div'));
+		console.log(document.createTextNode('123'));
+		console.log(document.createAttribute('name'));
+
+		//常见文本节点属性
+		// nodeValue
+		console.log("|" + document.body.firstChild.nodeValue + "|" );
+		// nodeName 表示节点的名字，一般元素节点才使用，元素节点打印的元素名字均为大小
+		console.log(document.body.nodeName);
+		var ddd = document.createElement('div');
+		console.log(ddd.nodeName);
+		console.log(document.body.firstChild.nodeName);
+		// 属性节点与文本节点
+		var attr1 = document.body.getAttributeNode( 'hd' );
+		var attr2 = document.body.attributes[0];
+		console.log(attr1);
+		console.log(attr2);
+
+		// nodeType 节点类型
+		// 1 元素节点
+		// 2 属性节点
+		// 3 文本节点
+		// 11，9了解
+		console.log(document.body.nodeType);
+		console.log(attr1.nodeType);
+		console.log(document.body.firstChild.nodeType);
+		console.log(document.nodeType);
+		console.log(document.createDocumentFragment().nodeType);
+	</script>
+</body>
+</html>

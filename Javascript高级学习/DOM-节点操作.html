@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM-节点操作</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			// 需求，创建一个4行*3列的一个表格table
+			var table = document.createElement('table');
+			var tbody = document.createElement('tbody');
+			table.appendChild(tbody);
+			for (var row = 0; row < 4; row++) {
+				var tr = document.createElement('tr');
+				for (var col = 0; col < 3; col++) {
+					var td = document.createElement('td');
+					var txt = document.createTextNode( col);
+					td.appendChild(txt);
+					td.width = 200;
+					td.height = 50;
+
+					tr.appendChild(td);
+				}
+				tbody.appendChild(tr);
+			}
+			document.body.appendChild(table);
+		}
+	</script>
+</head>
+<body>
+
+</body>
+</html>

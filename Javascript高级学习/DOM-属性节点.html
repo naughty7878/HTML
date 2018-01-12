@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM-属性节点</title>
+	<script type="text/javascript">
+		window.onload = function (){
+			// 操作属性节点就是属性的增删改查
+			var div = document.querySelector('#dv');
+
+			// 添加属性
+			// 添加自定义，非标准属性(DOM-Core);
+			div.setAttribute('hd','H__D');
+
+			// 使用.xxx = vvv 添加属性
+			// 添加的标准属性(HTML-DOM);
+			div.className = 'haha';
+
+			//第三种使用DOM节点方法
+			//  纯DOM-Core的做法
+			var attr = document.createAttribute('hhhh');
+			attr.nodeValue = 'dddddd';
+			div.setAttributeNode(attr);
+
+			//删除
+			var ck = document.querySelector('#ck');
+			//ck.removeAttribute( 'checked');
+
+			//ck.removeAttributeNode(ck.getAttributeNode('checked'));
+			//ck.ckecked = 'abc'; // => 先将字符串转换成boolen 在赋值，消耗性能
+			//ck.checked = ''; // => 先转换成boolean值，再赋值
+			// 一般都直接是用true 和false
+			ck.checked = false;
+
+			//修改
+			//查询
+		}
+	</script>
+</head>
+<body>
+	<div id='dv'></div>
+	<input type="checkbox" checked id="ck" />
+</body>
+</html>
