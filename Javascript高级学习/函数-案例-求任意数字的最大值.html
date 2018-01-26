@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>求任意数字的和</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// 利用Function, arguments
+		var fbody = 'var args = arguments;'
+			+ 'var res = 0;'
+			+ 'if (args.length > 0) {'
+			+ 	'for(var i = 0; i < args.length; i++ ) {'
+			+ 		'res += args[i];'	
+			+ 	'}'
+			+ '}'
+			+ 'return res;'
+		var sum = new Function( fbody ); 
+
+		console.log(sum());
+		console.log(sum( 1 ));
+		console.log(sum( 1, 2 ));
+		console.log(sum( 1, 2, 3 ));
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>arguments 对象</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		arguments 对象
+		arguments 是一个伪数组对象，它表示在函数调用过程中传入的所有参数的集合
+		在函数调用过程中没有规定参数的个数与类型，因此函数调用就具有灵活的特性，那么为了方便使用，
+		在每一个函数调用的过程中，函数代码提中有一个默认的对象arguments，它存储了实际传入的所有参数
+
+		js 中函数并没有规定必须如何传参
+		1、定义函数的时候不写参数，一样可以调用时传递参数
+		2、定义的时候写了参数，调用的时候可以不传参数
+		3、定义的时候写了一个参数，调用的时候可以随意的传递多个参数
+		
+		在diamond在设计中，如果需要函数带有任意个参数的时候，一般就不带任何参数，所有的参数利用arguments来获取
+		一般的函数定义语法，可以写成
+			function foo ( /* ... */ ) {
+	
+			}
+		*/ 
+
+		function foo (a, b) {
+			console.log('arguments=== ' + arguments.length );
+			console.log('a==' + a + ', b=-' + b);
+		}
+		foo(1);
+		foo(1, 2);
+		foo(1, 2, 3);
+	</script>
+</body>
+</html>n

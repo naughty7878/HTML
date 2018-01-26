@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prototype-原型链</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*			
+			1、原型链
+				* 凡是对象就有原型，原型也是对象，因此凡是给定一个对象，那么就可以找到它的原型，原型还有原型，那么如此下去，就构成一个对象的序列。称该结构为原型链
+			2、属性搜索原则
+				* 就是对象在访问属性和方法的时候，首先在当前对象中查找
+				* 若果没有就到原型中查找。找到即调用
+				* 直到找到Object.prototype 还没有，那么属性就返回undefied,方法就报错（xxx不是一个方法）
+			
+			原型链的结构
+			凡是使用构造函数，创建出对象，并且没有使用赋值方式修改原型，就说该对象保留默认的原型链
+		*/
+		function Person () {};
+		var p = new Person();
+
+		// p 具有默认的原型链
+		// 当前对象 -> Person.prototype -> Object.prototype -> null
+		// {} -> Object.prototype -> null
+		// [] -> Array.prototype -> Object.prototype -> null
+		// document.body -> HTMLBodyElement -> HTMLELement -> Element -> Node -> EventTarget -> Object
+
+		// 原型式继承：利用修改原型链的结构（增加一个节点，删除一个节点，修改节点中的成员），来实现实例对象可以使用整个链中的所有成员。
+	</script>
+</body>	
+</html>

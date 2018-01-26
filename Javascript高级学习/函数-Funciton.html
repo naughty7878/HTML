@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Function</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		在js中使用 Function可以实例化函数对象，也就是说在js中函数与普通对象一样，也是一个对象类型，
+		函数是js中的一等公民（Function是自己的构造函数 特例）		
+
+		1、函数是对象，可以使用对象的动态特性
+		2、函数是对象，就有构造函数创建函数
+		3、函数是函数，可以创建其他对象
+		4、函数是位移可以限定变量作用域的结果
+
+		函数 是Function 的实例
+		语法：
+			new Function( arg0, arg1, arg2, ..., argN, body);
+
+		1、Function 中的参数全部是字符串
+		2、该构造函数的作用是将参数连接起来组成函数
+			* 如果参数只有一个，那么表示函数体
+			* 函数参数有多个，那么最后一个参数表示函数体，前面的所有参数表示函数的参数
+			* 如果没有参数，表示创建一个空函数
+
+		*/
+
+		// 创建一个打印一句话的函数
+			// 传统的
+			function foo () {
+				console.log('你好');
+			}
+			// Function
+			var func = new Function('console.log("你好");');
+		// 功能上 foo 与 func 等价
+			foo();
+			func();
+
+
+		// 创建一个空函数
+			// 传统
+			function emt () {
+
+			}
+			// Function
+			var emtc = new Function();
+			emt();
+			emtc();
+
+		// 传入函数一个数字，打印该数字
+			// 传统
+			function pri ( num ) {
+				console.log( num );
+			}
+			// Function 
+			var pric = new Function ( 'num' , 'console.log( num );');
+
+			pri(2);
+			pric(2);
+
+		// 求三个数的最大值
+			// 传统
+			function maxNum (a, b, c) {
+				var res = a > b ? a : b;
+                res = res > c ? res : c;
+                return res;
+			}
+			// Function 
+			var maxNumc = new Function('a', 'b', 'c', 'var res = a > b ? a : b; res = res > c ? res : c;return res;');
+			console.log( maxNum(3, 2, 1) );
+			console.log( maxNumc(3, 2, 1) );
+			// 1、优化
+			var maxNumcc = new Function('a', 'b', 'c', 
+				  'var res = a > b ? a : b;' 
+				+ 'res = res > c ? res : c;'
+				+ 'return res;');
+			// 2、优化 可换行字符串（少数浏览器实现）
+			//使用键盘左商家的左单引号 表示 可换行字符串的界定符
+			console.log(`1
+				2
+				3`);
+			// 3、(最终)利用DOM特性 
+				// 获取节点中的文本代码
+
+	</script>
+</body>
+</html>

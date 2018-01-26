@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Prototype-构造函数</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		使用点语法给原型添加成员与使用直接替换修改原型对象有什么区别？
+		1、原型指向发生了变化
+		2、构造函数所创建的对象所继承的原型不同
+		3、新增的对象默认是没有constructor属性
+
+		注意：使用替换的方式修改原型的时候，一般都会添加constructor属性
+		---
+			function Person() {}
+			Person.prototype = {
+				constructor: Person
+			};
+
+
+
+		*/
+		// 自定义一个集合
+		function HdCollection () {}
+		// 要提供数组的方法为其添加成员
+		HdCollection.prototype = []; // new Array();
+		// HdCollection.prototype = Array.prototype;
+
+		var arr = new HdCollection();
+
+		arr.push('a', 'b', 'c', 'd');
+		// 自定义集合目的是让其像数组一样使用，但是同时有一些无法实现的方法
+		// sum() 求集合中所有数字的和
+		HdCollection.prototype.sum = function () {};
+
+		//HdCollection.prototype.constructor = HdCollection;
+	</script>
+</body>
+</html>
