@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>函数-eval</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// eval函数
+		// 将字符串当作代码来执行
+
+		//用法
+		//var num = 10; 
+		eval( 'var num = 10;' );
+		console.log( num );
+
+		// 使用eval, 将一个 对象形式的字符串转换成对象
+		var str = "{ name: 'Tom', age: 19}";
+		/*
+			var o = eval( str ); 报错
+			eval 首先 将 {} 解析成代码块
+			需要使用() 将其转换成表达式，{} 就不在是 块了
+		*/
+		var o = eval("(" + str + ")");
+	</script>
+</body>
+</html>

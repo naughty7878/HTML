@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>闭包的应用</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		/*
+		基本的闭包结构
+		一般闭包的问题就是要想办法间接的获得函数内数据的使用权。
+		1、写一个函数，函数内定义一个新函数，返回新函数，用新函数获得函数内的数据
+		2、写一个函数，函数内定义一个对象，对象中绑定多个函数（方法），返回对象，利用对象的方法访问函数内数据
+
+		闭包的基本用法
+		闭包是为了实现具有私有访问空间的函数
+		1、带有私有访问数据的对象
+		2、带有私有数据的函数
+		*/
+		function foo () {
+			var num = Math.random();
+			return {
+				get_num: function () {
+					return num;
+				},
+				set_num: function (value) {
+					num =  value;
+				}
+			}
+
+		}
+
+		//1、带有私有访问数据的对象 
+		function createPerson() {
+			var __name__ = "";
+			return {
+				get_Name: function () {
+					return __name__;
+				},
+				set_Name: function (value) {
+					if(value.charAt(0) == '张') {
+						__name__ = value;
+					}else {
+						throw new Error('姓氏不对，不能取名');
+					}
+				}
+			}
+		}
+
+		var p = new createPerson();
+		console.log(p.get_Name());
+		p.set_Name('张三丰');
+		console.log(p.get_Name());
+		//p.set_Name('王富贵');
+
+		//2、带有私有数据的函数
+		var func = function () {};
+		function func () {}
+
+		var foo = (function () {
+			//私有数据
+			return function  () {
+				//可以使用私有的数据
+			} 
+		})()
+
+
+		/*
+		闭包的性能问题
+		函数执行需要内存，那么函数中定义的变量，会在函数执行结束或自动回收，凡是因为闭包结构，被引出的数据，如果还有变量引用这些数据的话，那么这些数据就不会被回收
+
+		因此在使用闭包的时候，如果不使用某些数据了，一定要赋值一个null
+
+		*/
+		var f = (function () {
+			var num = 123;
+			return function () {
+				return num;
+			};
+		})();
+
+		// f 引用着函数，函数引用变量num
+		// 因此在不使用该函数的时候，最好写上
+		f = null;
+	</script>
+</body>
+</html>

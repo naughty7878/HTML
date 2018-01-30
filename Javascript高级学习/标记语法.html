@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>标记语法</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+			在js 中有一个标记语法
+				语法：
+					名字；
+					
+			其作用是跳出多重循环
+		*/
+		var arr = [
+			[2, 2, 3, 4],
+			[21, 21, 23, 34],
+			[33, 22, 11, 1],
+		]
+		var res1 = [];
+		index: for (var i = 0; i < arr.length; i++) {
+			// 遍历row
+			for (var j = 0; j < arr[i].length; j++) {
+				if(arr[i][j] === 11) {
+					res1.push( i );
+					res1.push( j );
+					break index;
+				}
+			}
+		}
+		console.log(res1);
+
+	</script>
+</body>
+</html>

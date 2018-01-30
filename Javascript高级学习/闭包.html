@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>闭包</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		闭包
+		简单来说就是一个具有封闭功能与包裹功能的一个结构，具有封闭的对外不公开的。
+
+		在js中函数可以构成闭包，一般函数是一个封闭代码结构，即包裹性，同时根据作用域规则，只允许函数访问外部的数据，外部无法访问函数内部的数据。
+
+		闭包要解决什么问题
+		1、闭包不允许外界访问
+		2、外界解决访问内部数据
+		*/
+
+		function foo() {
+			var num = Math.random();
+			function func() {
+				return num;
+			}
+			return func;
+		}
+		var f = foo();
+		// f 可以直接访问这个num
+		var res1 = f();
+		var res2 = f();
+
+
+	</script>
+</body>
+</html>

@@ -83,6 +83,16 @@
 			// 3、(最终)利用DOM特性 
 				// 获取节点中的文本代码
 
+
+		// 将字符串转换成对象
+		var str = '[1, 2, 3, 4]';
+		var stro = '{name: "Tom", age : 19}';
+
+		var funct = new Function(' return ' + str + ';');
+		var arr = funct();
+
+		var obje = (new Function('return' + stro + ';'))();
+
 	</script>
 </body>
 </html>
