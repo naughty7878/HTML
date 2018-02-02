@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>判断能力对象support</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		// document.getElementsByClassName = 123;
+
+		var support = {};
+
+		//support.getElementsByClassName = !!document.getElementsByClassName;
+		// 在jq 中不仅判断它是否存在，还要判断其能力是否符合要求
+
+		support.getElementsByClassName = (function(){
+			var isExist = !!document.getElementsByClassName;
+			if(isExist && typeof document.getElementsByClassName == 'function') {
+				// 自己建一个元素，并且加上class属性，看是否可以获得到加上的元素
+				var div = document.createElement('div'),
+					divWithClass = document.createElement('div');
+				divWithClass.className = 'c';
+				div.appendChild(divWithClass);
+				return div.getElementsByClassName('c')[0] === divWithClass;
+			}
+		})();
+
+		var temArr;
+		if (support.getElementsByClassName ) {
+			return node.getElementsByClassName( className );
+			//alert('支持class');
+		}else {
+			//自己实现( className );
+			alert('不支持class');
+		}
+	</script>
+</body>
+</html>

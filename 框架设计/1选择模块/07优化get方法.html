@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>07优化get方法</title>
+	<style type="text/css">
+		div, p {
+			width: 100px;
+			height: 30px;
+			border: 1px solid red;
+			margin: 10px 0;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<p></p>
+	<p></p>
+	<script type="text/javascript">
+		var each = function (arr, fn) {
+			for (var i = 0; i < arr.length; i++) {
+				if(fn.call(arr[i], i, arr[i]) === false) {
+					break;
+				}
+			}
+		}
+
+		var getTag = function (tag, results) {
+			results = results || [];
+			results.push.apply(results, document.getElementsByTagName(tag));
+			return results;
+		}
+		
+		// var list1 = getTag( 'div' );
+		// var list2 = getTag( 'p' );
+		// each(list1, function(){
+		// 	this.style.backgroundColor = 'green';
+		// });
+		// each(list2, function(){
+		// 	this.style.backgroundColor = 'green';
+		// });
+
+		each(getTag( 'div' ,getTag( 'p' )),function(){
+			this.style.backgroundColor = 'green';
+		});
+
+	</script>
+</body>
+</html>

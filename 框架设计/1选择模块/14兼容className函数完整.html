@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> 修改gat方法获取基本选择器元素</title>
+	<style type="text/css">
+		div, p {
+			width: 100px;
+			height: 30px;
+			border: 1px solid red;
+			margin: 10px 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="dv"></div>
+	<div></div>
+	<p></p>
+	<p></p>
+	<script type="text/javascript">
+		// 单独编写一个函数，在函数中如果要获得id，或tag 调用对应的你方法即可
+		var get = function (selector, results) {
+			results = results || [];
+			//                     1          2        3       4
+			var rquickExpr = /^(?:#([\w-]+)|\.([\w-]+)|([\w]+)|(\*))$/,
+				m = rquickExpr.exec( selector );
+			if( m ) {
+				if ( m[1] ){
+					results = getId( m[1], results);
+				}else if ( m[2] ){
+					results = getClass( m[2], results);
+				}else if ( m[3] ){
+					results = getTag( m[3], results);
+				}else if ( m[4] ){
+					results = getId( m[4], results);
+				}
+			}	
+			return results;
+		}
+
+		var getTag = function (tag, results) {
+			results = results || [];
+			results.push.apply(results, document.getElementsByTagName(tag));
+			return results;
+		}
+
+		var getId = function (id, results) {
+			results = results || [];
+			results.push.call(results, document.getElementById(id));
+			return results;
+		}
+
+		//判断浏览器不支持该方法对象
+		var support = {};
+		support.getElementsByClassName = (function(){
+			var isExist = !!document.getElementsByClassName;
+			if(isExist && typeof document.getElementsByClassName == 'function') {
+				// 自己建一个元素，并且加上class属性，看是否可以获得到加上的元素
+				var div = document.createElement('div'),
+					divWithClass = document.createElement('div');
+				divWithClass.className = 'c';
+				div.appendChild(divWithClass);
+				return div.getElementsByClassName('c')[0] === divWithClass;
+			}
+		})();
+
+		var getClass = function (className, results) {
+			results = results || [];
+			var temArr;
+			if (support.getElementsByClassName ) {
+				results.push.apply(results, document.getElementsByClassName( className ));//兼容问题
+			}else {
+				//自己实现( className );
+				// 思路： 首先获得所有元素，然后在元素中搜索符合要求的，再加入到数组中
+				temArr = document.getElementsByTagName( '*' );
+				// for 循环，判断是否符合要求
+				for (var i = 0; i < temArr.length; i++) {
+					//temArr[i].className === className; // 多样式 'c1 c2 c3'
+					//temArr[i].className.indexOf( className ) != -1;
+					if((' ' + temArr[ i ].className + ' ').indexOf(' ' + className + ' ') != -1) {
+						results.push(temArr[ i ]);
+					};
+				}
+			}
+			return results;
+		}
+
+
+
+		
+
+		var each = function (arr, fn) {
+			for (var i = 0; i < arr.length; i++) {
+				if(fn.call(arr[i], i, arr[i]) === false) {
+					break;
+				}
+			}
+		}
+
+		each( get( '#dv'), function () {
+			this.style.backgroundColor = 'skyblue';
+		});
+
+	</script>
+</body>
+</html>

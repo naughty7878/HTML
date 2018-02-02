@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> 修改gat方法获取基本选择器元素</title>
+	<style type="text/css">
+		div, p {
+			width: 100px;
+			height: 30px;
+			border: 1px solid red;
+			margin: 10px 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="dv"></div>
+	<div></div>
+	<p></p>
+	<p></p>
+	<script type="text/javascript">
+		// 单独编写一个函数，在函数中如果要获得id，或tag 调用对应的你方法即可
+		var get = function (selector, results) {
+			results = results || [];
+			//                     1          2        3       4
+			var rquickExpr = /^(?:#([\w-]+)|\.([\w-]+)|([\w]+)|(\*))$/,
+				m = rquickExpr.exec( selector );
+			if( m ) {
+				if ( m[1] ){
+					results = getId( m[1], results);
+				}else if ( m[2] ){
+					results = getClass( m[2], results);
+				}else if ( m[3] ){
+					results = getTag( m[3], results);
+				}else if ( m[4] ){
+					results = getId( m[4], results);
+				}
+			}	
+			return results;
+		}
+
+		var getTag = function (tag, results) {
+			results = results || [];
+			results.push.apply(results, document.getElementsByTagName(tag));
+			return results;
+		}
+
+		var getId = function (id, results) {
+			results = results || [];
+			results.push.call(results, document.getElementById(id));
+			return results;
+		}
+
+		var getClass = function (className, results) {
+			results = results || [];
+			results.push.apply(results, document.getElementsByClassName(className));//兼容问题
+			return results;
+		}
+
+
+		/*
+			1、如何判断浏览器不支持该方法
+			node
+			if (node.getElementsByClassName ) {
+				return node.getElementsByClassName( className );
+			}else {
+				自己实现( className );
+			}
+
+			优化：
+			a、在全局作用域中（最终都要变成沙箱）提供一个support对象
+			b、里面提供所有的与方法名相同的属性，值均为boolean
+			c、在浏览器加载js的开始的时候，就惊醒能力判断，将于方法名相同属性作为真和假进行存储
+			d、那么方式涉及到能力检查的时候就直接使用support即可
+
+			var support = {};
+			support.getElementsByClassName = !!document.getElementsByClassName;
+			
+			if (support.getElementsByClassName ) {
+				return node.getElementsByClassName( className );
+			}else {
+				自己实现( className );
+			}
+
+
+			2、如何实现该方法
+			var arr = [1, 2, 3, 4, 5];
+			var res = [];
+			for ... {
+				arr[i] % 2 === 1 {
+					res.push( arr[i] );
+				}
+			}
+		*/
+
+		var each = function (arr, fn) {
+			for (var i = 0; i < arr.length; i++) {
+				if(fn.call(arr[i], i, arr[i]) === false) {
+					break;
+				}
+			}
+		}
+
+		each( get( '#dv'), function () {
+			this.style.backgroundColor = 'skyblue';
+		});
+
+	</script>
+</body>
+</html>

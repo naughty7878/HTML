@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>apply方法</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		//例1
+
+        window.number = 'one';
+        document.number = 'two';
+
+        var s1 = {number: 'three' };
+        function changeColor(){
+            console.log(this.number);
+        }
+
+        changeColor.apply();         //one (默认传参)
+        changeColor.apply(window);   //one
+        changeColor.apply(document); //two
+        changeColor.apply(this);     //one
+        changeColor.apply(s1);       //three
+
+	    //例2
+	    function Pet(words){
+	        this.words = words;
+	        this.speak = function () {
+	            console.log( this.words)
+	        }
+	    }
+	    function Dog(words){
+	        //Pet.call(this, words); //结果： Wang
+	       Pet.apply(this, arguments); //结果： Wang
+	    }
+	    var dog = new Dog('Wang');
+	    dog.speak();
+
+
+	    function add(c,d){
+	        return this.a + this.b + c + d;
+	    }
+
+	    var s = {a:1, b:2};
+	    console.log(add.call(s,3,4)); // 1+2+3+4 = 10
+	    console.log(add.apply(s,[5,6])); // 1+2+5+6 = 14 
+
+	</script>
+</body>
+</html>
