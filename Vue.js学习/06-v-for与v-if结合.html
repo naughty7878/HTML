@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>计算属性</title>
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<li v-for="item in todos" v-if="item.completed">{{ item.title }}</li>
+		</ul>
+	</div>
+	<script src="node_modules/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		new Vue({
+			el: '#app',
+			data: {
+				numbers: [1, 2, 3, 4, 5],
+				todos: [
+					{
+						id: 1,
+						title: 'a',
+						completed: true
+					},
+					{
+						id: 2,
+						title: 'b',
+						completed: false
+					},
+					{
+						id: 3,
+						title: 'c',
+						completed: false
+					}
+				]
+
+			}
+		});
+
+	</script>
+</body>
+</html>

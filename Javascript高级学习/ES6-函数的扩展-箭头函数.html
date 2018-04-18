@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>箭头函数</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		new Function()
+		表达式
+			可以使用箭头函数简写
+		函数声明
+			箭头函数不能用于函数声明
+		*/
+
+		var add = function(x, y) {
+			return x + y;
+		}
+		console.log(add(1, 2));
+
+		// => 读作 goes to 去做
+		var addd = (x, y) => {
+			return x + y;
+		}
+		console.log(addd(1, 2));
+
+		var bdd = function(x) {
+			return x;
+		}
+
+		// 一个参数可以省略()
+		var bdd = x => {
+			return x;
+		}
+
+		//函数体只有一条语句，可以省略{}
+		var cdd = x => x;
+
+		console.log(bdd(12));
+		console.log(cdd(12));
+
+		// 箭头函数不能当作构造函数
+
+
+	</script>
+</body>
+</html>

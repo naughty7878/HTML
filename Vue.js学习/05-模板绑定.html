@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>模板绑定</title>
+	<style type="text/css">
+		
+		.box {
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="app">
+		<h1 v-bind:data-foo="message" >Hello {{ message }}</h1>
+		<h2 v-bind:data-info="'hehe'">{{ isLogin ? '真的' : '假的' }}</h2>
+		<hr>
+		<h1>表单数据双向绑定</h1>
+		<!-- 确实绑定了data中的数据，但是不是双向的 -->
+		<input type="text" v-bind:value="message">
+		<!-- 简写 -->
+		<input type="text" :value="message">
+		<!-- 
+			双向绑定
+			文本框数据变化了，data中的message也发生变化，则所有绑定message中的元素都变化
+		-->
+		<input type="text" v-model="message"> 
+		<br>
+		<textarea v-model="message"></textarea>
+		<br>
+		<input type="checkbox" v-model="isLogin">
+		<br>
+		<button v-on:click="handler">点我</button>
+		<button @click="handler">点我@</button>
+		<hr>
+		<input type="checkbox" v-model="seen" name="">显示与隐藏盒子
+		<div v-if="seen" class="box"></div>
+		<hr>
+		<h1>列表渲染</h1>
+		<ul>
+			<li v-for="item in fruits">{{ item }}</li>
+		</ul>
+	</div>
+	<script src="node_modules/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: 'World!',
+				isLogin: true,
+				seen: true,
+				fruits: ['apple', 'banana', 'orange']
+			},
+			// methods 与 data 中不允许有重名的成员
+			methods: {
+				handler: function(){
+					console.log('haha');
+				}
+			}
+		});
+	</script>
+</body>
+</html>

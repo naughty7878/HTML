@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>简单使用vue</title>
+	<!--
+		Jquery 与 Vue 对比
+		Jquery：提高了DOM操作的效率
+		Vue：完全屏蔽的DOM操作，Vue会帮你操作
+	-->
+</head>
+<body>
+	<div id="app">
+		<input type="number" id="number" v-model="number">
+		<button v-on:click="increment" id="btn_add">点击+1</button>
+	</div>
+	
+
+
+	<script src="node_modules/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#app',
+			data: {
+				message: 'hello',
+				number: 1
+			},
+			// 在 Vue 定义方法：定义到methods这个特殊的属性中
+			// 在Vue管理的模板中使用： v-on:事件名称="methods中的方法名称"的方式来为其注册特定的事件处理函数
+			methods: {
+				increment: function(){
+					console.log('该方法被执行了');
+					//app.number++;
+					//方式中的this就是 app 实例
+					this.number++; 
+				}
+			}
+		});
+
+	</script>
+</body>
+</html>

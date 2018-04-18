@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>点击自增</title>
+</head>
+<body>
+	<input type="number" id="number" value="0">
+	<button id="btn_add">点击+1</button>
+	
+	<script type="text/javascript">
+		// DOM方式
+		var number = document.getElementById('number');
+		var btn = document.getElementById('btn_add');
+		btn.onclick = function(){
+			var num = number.value - 0;
+			number.value = num + 1; 
+		}
+	</script>
+</body>
+</html>

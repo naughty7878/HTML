@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>defineProperty</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var user = {
+			name: '小明'
+		};
+		user.age = 18;
+
+		// 定义属性
+		// 参数：对象， 属性名，
+		Object.defineProperty(user, 'gender', {
+			// get 和 value 只能取其一
+			// value: '男'
+			// 当你访问 gender 的时候，会自动调用 get方法
+			get: function () {
+				console.log('gender 的 get 方法被调用了');
+				return 123;
+			}
+
+			// 属性 set 设置器
+			// 当你 user.gender = xxx 的时候，则会自动调用 set 方法, xxx 将作为set方法的参数
+			set: function (value) {
+				console.log(value);
+			}
+		});
+
+		console.log(user);
+	</script>
+</body>
+</html>

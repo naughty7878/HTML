@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>解构赋值</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr = ['hello', 'world'];
+		//var str1 = arr[0];
+
+		// 数组解构赋值
+		// 安装索引顺序来解构
+		// 解构不成功则是 undefined
+		// 解构赋值可以有默认值
+		var [str1, str2, str3 = 'hehe', str4] = arr;
+		console.log(str1);
+		console.log(str2);
+		console.log(str3);
+		console.log(str4);
+
+
+		// 对象解构赋值
+		var user = {
+			name: '张三',
+			age: 18 
+		}
+
+		// 相当于声明了2个变量name，age
+		// 对象按照键名来解构的
+		var {name, age} = user;
+
+		// 字符串模式赋值
+		const [a, b, c, d, e] = 'hello';
+		console.log(a);	
+
+		// 函数参数的解构赋值 
+		function add([x, y]){
+		  return x + y;
+		}
+		var arr = [1, 2];
+		console.log(add(arr)); // 3
+	</script>
+</body>
+</html>

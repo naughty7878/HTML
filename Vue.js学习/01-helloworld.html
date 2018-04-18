@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>vue - helloworld</title>
+</head>
+<body>
+	<!--
+		Vue 的使用 ：
+		0、引包: npm install vue
+		1、new Vue() 实例化Vue应用程序
+		2、根据你的试图界面配置 data 数据
+		3、通过el选项配置需要被Vue管理的DOM节点入口节点
+		4、Vue你就可以把它当做一个高级的模板引擎，在data中数据，接可以直接在被Vue管理的DOM中，直接通过模板语法来使用
+	-->
+	<div id="app">
+		<h1>{{ message }}</h1>
+		<p>{{ message }}</p>
+		<h2>{{ foo }}</h2>
+	</div>
+	<div id="app2">
+		<h1>{{ message }}</h1>
+		<p>{{ message }}</p>
+		<h2>{{ message }}</h2>
+	</div>
+	<script src="node_modules/vue/dist/vue.js"></script>
+	<script type="text/javascript">
+		// 高级模板引擎
+		new Vue({
+			// el 就是 element 元素的意思
+			el: '#app',
+			// data 有特殊含义
+			data: {
+				message: 'Hello Vue.js !',
+				foo: 'end'
+			}
+		});
+	</script>
+</body>
+</html> 

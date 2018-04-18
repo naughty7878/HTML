@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>数组遍历</title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		// forEach() 方法对数组的每一个元素执行一次提供的函数。
+		var arr = ["a", "b", "c"];
+ 
+		arr.forEach(function(element,index) {
+		    console.log(element,index);      
+		});
+
+
+		// map() 方法创建一个新数组，其结果是该数组都执行一次函数，原函数保持不变。
+		console.log(arr.map(function(element,index) {
+		    return element += "m";
+		}));
+
+
+		// filter() 方法使指定函数测试数组的每一个元素，并放回一个通过元素的新数组。
+
+		console.log([12, 5, 8, 130, 44].filter(function(value){
+		    return value>10;
+		}));
+
+		// some() 方法测试该数组有元素通过了指定函数的测试，如果有返回true，否则，返回false。
+		console.log([12, 5, 8, 130, 44].some(function(value){
+		    return value>10;
+		}));
+
+		// every() 方法测试该数组是否全部通过指定函数测试，全部通过返回true，否则，返回false。
+		console.log([12, 5, 8, 130, 44].every(function(value){
+		    return value>10;
+		}));
+	</script>
+</body>
+</html>

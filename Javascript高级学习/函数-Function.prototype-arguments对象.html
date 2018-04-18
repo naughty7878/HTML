@@ -18,12 +18,14 @@
 		
 		在diamond在设计中，如果需要函数带有任意个参数的时候，一般就不带任何参数，所有的参数利用arguments来获取
 		一般的函数定义语法，可以写成
-			function foo ( /* ... */ ) {
-	
-			}
+			
 		*/ 
+		//function foo ( /* ... */ ) {
+	
+		//}
 
 		function foo (a, b) {
+			console.log(arguments[0]);
 			console.log('arguments=== ' + arguments.length );
 			console.log('a==' + a + ', b=-' + b);
 		}

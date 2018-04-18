@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>函数的扩展</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		// 函数参数支持默认值
+		function add(x = 10, y = 20) {
+			console.log(x, y);
+		}
+		add();
+		add(50);
+		add(null, 30);
+
+
+		// 函数参数的rest参数
+		// 作用就是来代替arguments
+		function sum(x, ...args) {
+			console.log(x, args);
+		}
+		sum(1, 2, 3, 4, 5);
+	</script>
+</body>
+</html>

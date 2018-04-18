@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BOM</title>
+</head>
+<body>
+	<script type="text/javascript">
+		/*
+		BOM（Browser Object Mode）
+		浏览器对象模型，浏览器对象模型提供了独立于内容的、可以与浏览器窗口进行互动的对象结构。
+		BOM由多个对象组成，其中代表浏览器窗口的Window对象是BOM的顶层对象，其他对象都是该对象的子对象
+
+		DOM的顶级对象window
+
+		window是浏览器的顶级对象，当调用window下的属性和方法时，可以省略window
+		注意：window下一个特殊的属性 window.name
+		*/
+		var abc = '123';
+		function fn() {
+			console.log('fn');
+		}
+
+		console.log(window.abc);
+		window.fn();
+
+		window.alert();
+		window.prompt();
+		window.confirm(); 
+	</script>
+</body>
+</html>

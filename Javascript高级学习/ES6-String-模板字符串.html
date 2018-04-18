@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>字符串的扩展模板字符串</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// var name = 'jack'
+		// var foo = 'bar' + name
+		//不能换行
+
+		// 模板字符串
+		// 可以换行，拼接方便
+		var foo = `
+			hello word 
+			哈哈
+		`;
+		console.log(foo);
+
+		var user = {
+			name: '张三',
+			age: 18,
+			gender: '男'
+		};
+
+		var greeting = `
+			大家好，我叫${user.name},
+			我是${user.gender}的,
+			我今年${user.age}岁了
+		`;
+		console.log(greeting);
+	</script>
+</body>
+</html>
