@@ -1,0 +1,28 @@
+<html>
+
+<head></head>
+
+<body>
+    <div id="demo">
+        <p v-my-directive="msg"></p>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script src="./vue-myPlugin2.js"></script>
+    <script>
+        // 调用 `MyPlugin.install(Vue)`
+        Vue.use(MyPlugin)
+        Vue.myGlobalMethod()
+
+        const vm = new Vue({
+            // ...组件选项
+            el: '#demo',
+            data: {
+                msg: 'hello world'
+            }
+        })
+
+        vm.$myMethod()
+    </script>
+</body>
+
+</html>

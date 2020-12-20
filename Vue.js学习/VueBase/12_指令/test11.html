@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <style>
+        /*属性选择器*/
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="demo">
+        <p ref="content">hello world</p>
+        <button @click="hint">提示</button><br>
+        <!-- <p v-text="msg"></p> -->
+        <p v-cloak >{{msg}}</p>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#demo',
+            data: {
+                msg: "message"
+            },
+            methods: {
+                hint() {
+                    alert(this.$refs.content.textContent)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

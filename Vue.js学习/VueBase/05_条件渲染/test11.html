@@ -1,0 +1,28 @@
+<html>
+    <head></head>
+    <body>
+        <div id="demo">
+            <p v-if="ok">成功</p>
+            <p v-else>失败</p>
+
+            <p v-show="ok">表白成功</p>
+            <p v-show="!ok">表白失败</p>
+
+            <p v-if="num==='A'">A</p>
+            <p v-if="num==='B'">A</p>
+            <p v-else>D</p>
+            <button @click="ok=!ok">切换</button>
+        </div>
+        
+        <script type="text/javascript" src="../js/vue.js"></script>
+        <script>
+            const vm = new Vue({
+                el: '#demo',
+                data: {
+                    ok: false,
+                    num: 'C'
+                }
+            })
+        </script>
+    </body>
+</html>

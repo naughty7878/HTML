@@ -1,0 +1,63 @@
+<html>
+    <head></head>
+    <body>
+        <div id="demo">
+            姓：<input type="text" placeholder="First Name" v-model="firstName"><br>
+            名：<input type="text" placeholder="Last Name" v-model="lastName"><br>
+            姓名1（单向）：<input type="text" placeholder="Full Name 1" v-model="fullName1"><br>
+            姓名2（单向）：<input type="text" placeholder="Full Name 2" v-model="fullName2"><br> 
+            姓名3（单向）：<input type="text" placeholder="Full Name 3" v-model="fullName3"><br> 
+            
+            <p>{{fullName1}}</p>
+            <p>{{fullName1}}</p>
+            <p>{{fullName1}}</p>
+        </div>
+        <script type="text/javascript" src="../js/vue.js"></script>
+        <script>
+            const vm = new Vue({
+                el: "#demo",
+                data: {
+                    firstName: 'A',
+                    lastName: 'B',
+                    // fullName1: 'A B'
+                    fullName2: 'A B'
+                },
+                computed: {
+                    // 什么时候执行：初始化显示/相关data属性发生变化的时候调用
+                    // 计算并返回当前属性的值
+                    fullName1 (){
+                        console.log('---fullName1---');
+                        // this == vm 对象
+                        return this.firstName + ' ' + this.lastName;
+                    }, 
+                    fullName3: {
+                        // 回调函数：1、你定义的，2、你没有调，3、最终它执行了
+                        // 什么时候调用？用来干什么的？
+                        // 当获取当前属性值时自动调用, 将返回值(根据相关的其它属性数据)作为属性值
+                        get(){
+                            return this.firstName + ' ' + this.lastName;
+                        },
+                        // 当属性值发生改变时回调，更新相关的属性数据
+                        set(value){
+                            // value 是 fullName3的最新属性值
+                            const names = value.split(' ');
+                            this.firstName = names[0];
+                            this.lastName = names[1];
+                        }
+                    }
+                },
+                // 配置监视
+                watch: {
+                    // 回调函数
+                    firstName: function(value){
+                        this.fullName2 = value + ' ' + this.lastName;
+                    }
+                }
+            })
+
+            vm.$watch('lastName', function(value){
+                this.fullName2 = this.firstName + ' ' + value;
+            })
+        </script>
+    </body>
+</html>

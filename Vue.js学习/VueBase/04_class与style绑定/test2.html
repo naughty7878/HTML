@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <style>
+            .aClass {
+                color: red;
+            }
+            .bClass {
+                color: blue;
+            }
+            .cClass {
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="demo">
+            <h2>1、class绑定：class='xxx'</h2>
+            <p class="cClass" :class="a">xxxxx是字符串</p>
+            <p :class="{aClass: true, bClass: false}">xxxxx是对象1</p>
+            <p :class="{aClass: isA, bClass: isB}">xxxxx是对象2</p>
+            <p :class="['aClass', 'bClass']">xxxxx是数组</p>
+
+            <h2>2、style绑定</h2>
+            <p :style="{color: activeColor, fontSize: fontSize + 'px'}">xxx绑定style</p>
+            <button @click="update">更新</button>
+        </div>
+        <script type="text/javascript" src="../js/vue.js"></script>
+        <script>
+            const vm = new Vue({
+                el: '#demo',
+                data: {
+                    a: 'aClass',
+                    isA: true,
+                    isB: false,
+                    activeColor: 'red',
+                    fontSize: 30
+                },
+                methods: {
+                    update() {
+                        this.a = 'bClass'
+                        this.isA = false
+                        this.isB = true
+                        this.activeColor = 'green'
+                        this.fontSize = 10
+                    }
+                }
+
+            })
+        </script>
+    </body>
+</html>
