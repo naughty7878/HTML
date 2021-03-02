@@ -5,14 +5,14 @@
 </template>
 
 <script>
-  // 向外默认暴露组件
-  export default {
-    data() {
-      return {
-        msg: 'Hello Vue Componment'
-      }
+// 向外默认暴露组件
+export default {
+  data () {
+    return {
+      msg: 'Hello Vue Componment'
     }
   }
+}
 </script>
 
 <style>
