@@ -1,54 +1,64 @@
 <template>
-  <div>
-    <header class="site-header jumbotron">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <h1>请发表对Vue的评论</h1>
-          </div>
-        </div>
-      </div>
-    </header>
-    <div class="container">
-      <!-- 左边 -->
-      <Add />
-      <!-- 右边 -->
-      <List :comments="comments"/>
-    </div>
+   <div>
+     <div v-if="!repoUrl">loading</div>
+    <div v-else>most start repo is <a :href="repoUrl">{{repoName}}</a></div>
   </div>
 </template>
 
 <script>
 // 1、引入组件
-import Add from './components/Add.vue'
-import List from './components/List.vue'
+// import TodoFooter from './components/TodoFooter.vue'
+// 引入axios
+import axios from 'axios'
 
+// 配置对象(与vue一致)
 export default {
   // 2、映射组件标签
   components: {
-    Add,
-    List
+
   },
+  // data : {}
+  // 必须写函数，返回一个对象
   data () {
     return {
-      comments: [
-        {
-          name: 'Bob',
-          content: 'Vue 还不错'
-        },
-        {
-          name: 'Cat',
-          content: 'Vue So Easy'
-        },
-        {
-          name: 'Tom',
-          content: 'Vue So So'
-        }
-      ]
+      repoUrl: '',
+      repoName: ''
     }
+  },
+  mounted () {
+    // 使用 vue-resource 发送 ajax 请求获取数据
+    const url = 'https://api.github.com/search/repositories?q=v&sort=stars'
+    // this.$http.get(url).then(
+    //   (response) => {
+    //     // success callback
+    //     console.log(response.data) // 返回结果数据
+    //     const result = response.data
+    //     const mostRepo = result.items[0]
+    //     this.repoUrl = mostRepo.html_url
+    //     this.repoName = mostRepo.name
+    //   },
+    //   (response) => {
+    //     // error callback
+    //     alert('请求失败')
+    //   }
+    // )
+
+    // 使用 axios 发送 ajax 请求获取数据
+    axios.get(url).then(
+      response => {
+        console.log(response.data) // 得到返回结果数据
+        const result = response.data
+        const mostRepo = result.items[0]
+        this.repoUrl = mostRepo.html_url
+        this.repoName = mostRepo.name
+      })
+      .catch(error => {
+        console.log(error.message)
+      })
   }
 }
 </script>
 
 <style>
+
 </style>

@@ -28,8 +28,10 @@
   <button @click="test3('abcd', $event)">test3</button>
 
   <h2>2. 事件修饰符</h2>
+   <!-- .prevent 阻止事件默认行为 -->
   <a href="http://www.baidu.com" @click.prevent="test4">百度一下</a>
   <div style="width: 200px;height: 200px;background: red" @click="test5">
+    <!-- .stop 阻止冒泡-->
     <div style="width: 100px;height: 100px;background: blue" @click.stop="test6"></div>
   </div>
 

@@ -39,6 +39,11 @@
     },
     methods: {
       hint () {
+        // 获取DOM对象
+        alert(this.$refs)
+        // 获取msg标签
+        alert(this.$refs.msg)
+        // 获取msg标签内容
         alert(this.$refs.msg.innerHTML)
       }
     }
