@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回顾Object.defineProperty方法</title>
+</head>
+<body>
+    <script type="text/javascript">
+        let number = 18
+        let person = {
+            name: '张三',
+            sex: '男',
+            // age: number
+        }
+        // 定义一个对象的属性
+        Object.defineProperty(person, 'age', {
+            // 属性的值
+            // value: 18,
+            // 属性是否可以枚举，默认为false
+            enumerable: true,
+            // 属性是否可以修改，默认为false
+            // writable: true,
+            // 属性是否被删除，默认为false
+            // configurable: true,
+            // 获取属性的值
+            get() {
+                // this 是对象本身  
+                console.log('this', this);
+                console.log('读取属性', number);
+                return number
+            },
+            // 设置属性的值
+            set(value) {
+                 // this 是对象本身  
+                console.log('this', this);
+                console.log('设置属性', value);
+                number = value
+            }
+        })
+        
+        // console.log('Object.keys', Object.keys(person));
+        for (let key in person) {
+            console.log('key', key);
+        }
+
+        console.log('person', person);
+        // person.age = 19
+        // 删除属性
+        // delete person.age
+        console.log('person', person);
+    </script>
+</body>
+</html>
