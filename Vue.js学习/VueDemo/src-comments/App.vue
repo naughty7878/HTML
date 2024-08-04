@@ -32,7 +32,7 @@ import List from './components/List.vue'
 export default {
   // 2、映射组件标签
   components: {
-    HelloWorld,
+    HelloWorld: HelloWorld,
     Add,
     List
   },
@@ -60,6 +60,7 @@ export default {
   methods: {
     // 添加评论
     addComment (comment) {
+      // 放入数组最前面
       this.comments.unshift(comment)
     },
     // 删除指定下标的评论

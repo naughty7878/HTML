@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const person = {
+            name : "jack",
+            age: 21,
+            language: ['java', 'js', 'css']
+        }
+        // 对象结构
+        const {name: abc, age, language} = person;
+        console.log(abc, age, language);
+
+        // 字符串扩展
+        let str = "hello.vue";
+        console.log(str.startsWith("hello"));
+        console.log(str.endsWith(".vue"));
+        console.log(str.includes("e"));
+        console.log(str.includes("hello"));
+        
+        // 字符串模板
+        let ss = `<div>
+                    <span>hello world</span>
+                  </div>`;
+                  
+        console.log(ss);
+
+        // 字符串插值 变量名写在 ${} 中，${} 中可以放入 JavaScript 表达式。
+        let info = `我是${abc}, 今年${age}了`;
+        console.log(info);
+
+        function fun() {
+            return "这是一个函数";
+        }
+        console.log(info + `, ${fun()}`);
+    </script>
+</body>
+</html>

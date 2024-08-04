@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="num++">点赞</button>
+        <button v-on:click="num--">取消</button>
+        <button v-on:click="cananel">取消2</button>
+        <button @click="cananel">取消3</button>
+
+        <h3>有{{num}}赞</h3>
+
+
+        <div style="background-color: blue;padding: 20px;" @click="hello">
+            大div
+            <div style="background-color: green;padding: 20px;" @click.stop="hello">
+                小div
+                <a href="http://www.baidu.com"  @click.prevent.stop="hello">去百度</a>
+            </div>
+        </div>
+
+        <input type="text" v-model="num" 
+        v-on:keyup.up="num+=2" v-on:keyup.down="num-=2"
+        @click.ctrl="num=10">
+    </div>
+
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                num: 1
+            },
+            methods: {
+                cananel(){
+                    this.num --;
+                },
+                hello(){
+                    alert('hello');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

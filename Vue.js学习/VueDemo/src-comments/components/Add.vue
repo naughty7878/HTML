@@ -54,6 +54,7 @@ export default {
         content
       }
       // 3、添加到 comments中
+      // this.addComment : props中声明的属性都用this调用
       this.addComment(comment)
       // 4、清除输入
       this.name = ''

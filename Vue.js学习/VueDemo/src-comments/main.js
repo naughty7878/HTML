@@ -12,6 +12,7 @@ let vm = new Vue({
   template: '<App/>'
 })
 
+// 使用vm
 Vue.use({
   vm
 })
