@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件的基本使用</title>
+    <!-- 引入Vue -->
+    <script text="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        Vue中的事件修饰符：
+        1.prevent：阻止默认事件（常用）；
+        2.stop：阻止事件冒泡（常用）；
+        3.once：事件只触发一次（常用）；
+        4.capture：使用事件的捕获模式；
+        5.self：只有event.target是当前操作的元素时才触发事件；
+        6.passive：事件的默认行为立即执行，无需等待事件回调执行完毕；
+    -->
+    <!-- 准备一个容器 -->
+    <div id="root">
+        <h1>学校名称：{{name}}</h1>
+        <input type="text" placeholder="按下回车提示输入" @keyup.enter="showINfo">
+        <input type="text" placeholder="按下回车提示输入" @keyup.ctrl.y="showINfo">
+    </div>
+    <script type="text/javascript">
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                name: '尚硅谷'
+            },
+            methods: {
+                showINfo(e) {
+                    console.log(e.key, e.code);
+                    console.log(e.keyCode);
+                    console.log(e.target.value);
+                }
+            }
+        })       
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.姓名案例_插值语法实现</title>
+    <!-- 引入Vue -->
+    <script text="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+
+    <!-- 准备一个容器 -->
+    <div id="root">
+        姓：<input type="text" v-model="lastName"><br><br>
+        名：<input type="text" v-model="firstName"><br><br>
+        全名：<span>{{lastName.slice(0,3)}} {{firstName}}</span>
+    </div>
+    <script type="text/javascript">
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                firstName: '三',
+                lastName: '张'
+            },
+            methods: {
+              
+            }
+        })       
+    </script>
+
+</body>
+
+</html>
