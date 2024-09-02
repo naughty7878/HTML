@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.列表排序</title>
+    <!-- 引入Vue -->
+    <script text="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        v-for指令:
+        1.用于展示列表数据
+        2.语法：v-for="(item, index) in xxx" :key="yyy"
+        3.可遍历：数组、对象、字符串（用的很少）、指定次数（用的很少）
+    -->
+    <!-- 准备一个容器 -->
+    <div id="root">
+        <h2>人员列表</h2>
+        <input type="text" placeholder="请输入名字" v-model="keyWord">
+        <button @click="sort=1">年龄升序</button>
+        <button @click="sort=2">年龄降序</button>
+        <button @click="sort=0">原顺序</button>
+        <ul>
+            <li v-for="(item, index) in persons2" :key="item.id">
+                {{index}}-{{item.name}}-{{item.age}}-{{item.sex}}
+            </li>
+        </ul>
+
+    </div>
+    <script type="text/javascript">
+        // 用computed实现
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                persons: [
+                    { id: '001', name: '马冬梅', age: 25, sex: '女' },
+                    { id: '002', name: '周冬雨', age: 19, sex: '女' },
+                    { id: '003', name: '周杰伦', age: 20, sex: '男' },
+                    { id: '004', name: '温兆伦', age: 22, sex: '男' },
+                ],
+                keyWord: '',
+                sort: 0
+            },
+            computed: {
+                persons2() {
+                    let arr =  this.persons.filter(p => {
+                        return p.name.includes(this.keyWord)
+                    })
+                    if (this.sort == 1) {
+                        arr.sort((a, b) => a.age - b.age);
+                    }
+                    if (this.sort == 2) {
+                        arr.sort((a, b) => b.age - a.age);
+                    }
+                    return arr
+                }
+            }
+        })
+           
+    </script>
+</body>
+
+</html>
