@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>4.列表排序</title>
+    <title>5.更新时的一个问题</title>
     <!-- 引入Vue -->
     <script text="text/javascript" src="../js/vue.js"></script>
 </head>
@@ -23,7 +23,6 @@
 
     </div>
     <script type="text/javascript">
-        // 用computed实现
         const vm = new Vue({
             el: '#root',
             data: {
@@ -40,7 +39,12 @@
                     // this.persons[0].name = '马老师'
                     // this.persons[0].age = '35'
                     // this.persons[0].sex = '男'
-                    this.persons[0] = { id: '001', name: '马老师', age: 35, sex: '男' }
+
+                    // 不可行
+                    // this.persons[0] = { id: '001', name: '马老师', age: 35, sex: '男' }
+
+                    // 可行
+                    this.persons.splice(0, 1,  { id: '001', name: '马老师', age: 35, sex: '男' })
                 }
             }
         })
