@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生命周期</title>
+    <!-- 引入Vue -->
+    <script text="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 准备一个容器 -->
+    <div id="root">
+        <h2>当前的n值是：{{n}}</h2>
+        <button @click="add">点我n+1</button>
+        <button @click="bye">点我销毁vm</button>
+
+    </div>
+    <script type="text/javascript">
+        const vm = new Vue({
+            el: '#root',
+            // template: `
+            //     <div>
+            //         <h2>当前的n值是：{{n}}</h2>
+            //         <button @click="n++">点我n+1</button>
+            //     </div>
+            // `,
+            data: {
+                n: 1
+            },
+            beforeCreate() {
+                console.log('beforeCreate');
+                // this对象  无_data对象 无add()方法
+                // console.log(this)
+                // debugger
+
+            },
+            created() {
+                console.log('created');
+                // this对象  有_data对象 有add()方法
+                // console.log(this)
+                // debugger
+            },
+            beforeMount() {
+                console.log('beforeMount');
+                // console.log(this)
+                // debugger
+            },
+            mounted() {
+                console.log('mounted');
+                // console.log(this)
+                // debugger
+            },
+            beforeUpdate() {
+                console.log('beforeUpdate');
+                // console.log(this)
+                // console.log(this.n);
+                // debugger
+            },
+            updated() {
+                console.log('updated');
+                // console.log(this)
+                // console.log(this.n);
+                // debugger
+            },
+            beforeDestroy() {
+                console.log('beforeDestroy');
+                // console.log(this)
+                // debugger
+            },
+            destroyed() {
+                console.log('destroyed');
+                // console.log(this)
+                // debugger
+            },
+            methods: {
+                add() {
+                    console.log('add');
+                    this.n++
+                },
+                bye() {
+                    console.log('bye');
+                    this.$destroy();
+                }
+            },
+        })
+
+    </script>
+</body>
+
+</html>
