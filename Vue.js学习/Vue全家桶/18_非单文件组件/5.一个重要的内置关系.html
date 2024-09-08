@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.一个重要的内置关系</title>
+    <!-- 引入Vue -->
+    <script text="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+            1.一个重要的内置关系：VueComponent.prototype.__proto__ === Vue.prototype
+            2.为什么要有这个关系：让组件实例对象（vc）可以访问到 Vue原型上的属性、方法。
+    -->
+    <!-- 准备一个容器 -->
+    <div id="root">
+        <h1>{{msg}}</h1>
+        <school></school>
+    </div>
+    <script type="text/javascript">
+        Vue.prototype.x = 99
+
+
+        // 第一步：创建school组件
+        const school = Vue.extend({
+            name: 'myschool',
+            template: `
+                <div>
+                    <h2>学校名称：{{schoolName}}</h2>
+                    <h2>学校名称：{{address}}</h2>
+                    <button @click='showName'>点我显示学校名</button>
+                </div>
+            `,
+            data() {
+                return {
+                    schoolName: '尚硅谷',
+                    address: '深圳',
+                }
+            },
+            methods: {
+                showName() {
+                    console.log('showName', this);
+                    console.log('x', this.x);
+                    alert(this.schoolName)
+                }
+            },
+        })
+
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                msg: 'hello world'
+            },
+            // 第二步：局部组件
+            components: {
+                school
+            }
+        })
+
+        console.log('=============================');
+        // console.log(school.prototype.__proto__ === Vue.prototype)
+
+        //定义一个构造函数
+        function Demo() {
+            this.a = 1
+            this.b = 2
+        }
+        // function Demo2(){
+        //     this.a = 1
+        //     this.b = 2
+        // }
+        //创建一个Demo的实例对象
+        const d = new Demo()
+
+        console.log('Demo', Demo.prototype) //显示原型属性
+        // console.log('Demo2', Demo2.prototype)
+        console.log(d.__proto__) //隐式原型属性
+        console.log(Demo.prototype === d.__proto__)
+
+        //程序员通过显示原型属性操作原型对象，追加一个x属性，值为99
+        Demo.prototype.x = 99
+
+        console.log('@', d) 
+    </script>
+</body>
+
+</html>

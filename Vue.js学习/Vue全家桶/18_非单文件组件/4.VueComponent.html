@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.VueComponent</title>
+    <!-- 引入Vue -->
+    <script text="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- 
+        关于VueComponent：
+                    1.school组件本质是一个名为VueComponent的构造函数，且不是程序员定义的，是Vue.extend生成的。
+
+                    2.我们只需要写<school/>或<school></school>，Vue解析时会帮我们创建school组件的实例对象，
+                        即Vue帮我们执行的：new VueComponent(options)。
+
+                    3.特别注意：每次调用Vue.extend，返回的都是一个全新的VueComponent！！！！
+
+                    4.关于this指向：
+                            (1).组件配置中：
+                                        data函数、methods中的函数、watch中的函数、computed中的函数 它们的this均是【VueComponent实例对象】。
+                            (2).new Vue(options)配置中：
+                                        data函数、methods中的函数、watch中的函数、computed中的函数 它们的this均是【Vue实例对象】。
+
+                    5.VueComponent的实例对象，以后简称vc（也可称之为：组件实例对象）。
+                        Vue的实例对象，以后简称vm。
+    -->
+    <!-- 准备一个容器 -->
+    <div id="root">
+        <h1>{{msg}}</h1>
+        <hello></hello> 
+        <school></school>
+    </div>
+    <script type="text/javascript">
+
+        // 第一步：创建school组件
+        const school = Vue.extend({
+            name: 'myschool',
+            template: `
+                <div>
+                    <h2>学校名称：{{schoolName}}</h2>
+                    <h2>学校名称：{{address}}</h2>
+                    <button @click='showName'>点我显示学校名</button>
+                </div>
+            `,
+            data() {
+                return {
+                    schoolName: '尚硅谷',
+                    address: '深圳',
+                }
+            },
+            methods: {
+                showName() {
+                    console.log('showName', this);
+                    alert(this.schoolName)
+                }
+            },
+        })
+
+        const test = Vue.extend({
+            template: `
+                <div>
+                    test
+                </div>
+            `,
+        })
+
+        const hello = Vue.extend({
+            template: `
+                <div>
+                    {{hello}}
+                    <hr>
+                    <test></test>
+                </div>
+            `,
+            data() {
+                return {
+                    hello: 'xxxx',
+                }
+            },
+            components: {
+                test
+            }
+        })
+
+        console.log('hello', hello);
+        console.log('school', school);
+        // 不是同一个对象
+        console.log(hello === school);
+
+
+        const vm = new Vue({
+            el: '#root',
+            data: {
+                msg: 'hello world'
+            },
+            // 第二步：局部组件
+            components: {
+                school,
+                hello
+            }
+        })
+
+    </script>
+</body>
+
+</html>
