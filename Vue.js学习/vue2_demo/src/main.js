@@ -10,7 +10,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 // 使用ElementUI
 Vue.use(ElementUI);
-
+// 关闭vue的生产提示
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
