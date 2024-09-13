@@ -1,17 +1,35 @@
 <template>
     <div>
-        <img alt="Vue logo" src="./assets/logo.png" />
-        <h1 v-text="msg" ref="title"></h1>
-        <button @click="showDom">点我显示上方DOM元素</button>
         <!-- 使用组件 -->
-        <School ref="sch"></School>
+        <School></School>
+        <hr>
         <Student></Student>
     </div>
 </template>
 
 <script>
+
+mixin(混入)
+
+// 1. 功能：可以把多个组件共用的配置提取成一个混入对象
+
+// 2. 使用方式：
+
+//     第一步定义混合：
+
+//     ```
+//     {
+//         data(){....},
+//         methods:{....}
+//         ....
+//     }
+//     ```
+
+//     第二步使用混入：
+
+//     ​	全局混入：```Vue.mixin(xxx)```
+//     ​	局部混入：```mixins:['xxx']	```
 // 引入组件
-// 在脚手架中 "./School.vue" "./School" 都可以
 import School from "./components/School.vue";
 import Student from "./components/Student.vue";
 
@@ -19,23 +37,13 @@ export default {
     name: "App",
     // 注册组件
     components: {
-        School,
-        Student,
+        Student,School
     },
     data() {
         return {
-            msg: "欢迎学习Vue",
         };
     },
     methods: {
-        showDom() {
-            console.log(this);
-            console.log(this.$refs);
-            // DOM元素: <h1 v-text="msg" ref="title"></h1>
-            console.log(this.$refs.title);
-            // VueComponent: 学校vc对象
-            console.log(this.$refs.sch);
-        },
     },
 };
 </script>
