@@ -1,37 +1,70 @@
 <template>
-    <div>
-        <h2 class="title">HELLO</h2>
-        <!-- 使用组件 -->
-        <School></School>
-        <hr>
-        <Student></Student>
+    <div id="root">
+        <div class="todo-container">
+            <div class="todo-wrap">
+                <MyHeader/>
+                <MyList/>
+                <MyFooter/>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 // 引入组件
-import School from "./components/School.vue";
-import Student from "./components/Student.vue";
-// css 冲突时，根据引入顺序 Student 中的css会覆盖 School 中的css
+import MyHeader from "./components/MyHeader.vue";
+import MyFooter from "./components/MyFooter.vue";
+import MyList from "./components/MyList.vue";
 
 export default {
     name: "App",
-    // 注册组件
-    components: {
-        Student,School
-    },
-    data() {
-        return {
-        };
-    },
-    methods: {
-    },
+    components: { MyHeader, MyFooter, MyList },
 };
 </script>
 
-<style scoped>
-/* scoped : 表明样式只对当前组件生效，其他组件或子组件不生效 */
-    .title {
-        color: red;
-    }
+<style>
+/*base*/
+body {
+    background: #fff;
+}
+
+.btn {
+    display: inline-block;
+    padding: 4px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
+        0 1px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #da4f49;
+    border: 1px solid #bd362f;
+}
+
+.btn-danger:hover {
+    color: #fff;
+    background-color: #bd362f;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.todo-container {
+    width: 600px;
+    margin: 0 auto;
+}
+.todo-container .todo-wrap {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
 </style>
