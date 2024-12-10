@@ -2,10 +2,15 @@
     <!-- 组件的结构 -->
     <li>
         <label>
-            <input type="checkbox" />
-            <span>xxxxx</span>
+                  <!-- 不建议这样操作
+                有点违反原则，数据在哪里，修改方法就在哪里 -->
+            <!-- <input type="checkbox" v-model="todo.done" /> -->
+
+            <input type="checkbox" :checked="todo.done" @change="handleCheck(todo.id)" />
+
+            <span>{{todo.title}}</span>
         </label>
-        <button class="btn btn-danger" style="display:none">删除</button>
+        <button class="btn btn-danger" @click="handleDelete(todo.id)">删除</button>
     </li>
 </template>
 
@@ -13,13 +18,26 @@
 <script>
 export default {
     name: "Item",
-    data() {},
+    // 声明接受tudo对象
+    props: ['todo', 'checkTodo', 'deleteTodo'],
+    methods: {
+        handleCheck(id) {
+            // 通知todo对象数据操作
+            // console.log(id);
+            this.checkTodo(id);
+        },
+        handleDelete(id) {
+            if(confirm('确认删除吗？')) {
+                // console.log(id);
+                this.deleteTodo(id)
+            }
+        }
+    },
 };
 </script>
 
 
 <style scoped>
-
 /*item*/
 li {
     list-style: none;
@@ -54,5 +72,10 @@ li:before {
 li:last-child {
     border-bottom: none;
 }
-
+li:hover {
+    background-color: mediumaquamarine;
+}
+li:hover button {
+    display: block;
+}
 </style>

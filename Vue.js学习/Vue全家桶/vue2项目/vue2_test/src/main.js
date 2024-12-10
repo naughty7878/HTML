@@ -8,7 +8,8 @@ Vue.config.productionTip = false
 
 //创建vm
 new Vue({
+  el: '#app',
   // 模板解析
   // ==== h: 这个参数是一个函数，通常称为 createElement。
   render: h => h(App),
-}).$mount('#app')
+})

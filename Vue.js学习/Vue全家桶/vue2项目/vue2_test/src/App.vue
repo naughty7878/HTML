@@ -1,10 +1,10 @@
 <template>
-    <div id="root">
+    <div id="app">
         <div class="todo-container">
             <div class="todo-wrap">
-                <MyHeader/>
-                <MyList/>
-                <MyFooter/>
+                <MyHeader :addTodos="addTodos"/>
+                <MyList :todos="todos" :checkTodo="checkTodo" :deleteTodo="deleteTodo"/>
+                <MyFooter :todos="todos" :checkAllTodo="checkAllTodo" :clearAllTodo="clearAllTodo"/>
             </div>
         </div>
     </div>
@@ -19,6 +19,45 @@ import MyList from "./components/MyList.vue";
 export default {
     name: "App",
     components: { MyHeader, MyFooter, MyList },
+    data() {
+        return {
+            todos: [
+                { id: "0001", title: "抽烟", done: true },
+                { id: "0002", title: "喝酒", done: false },
+                { id: "0003", title: "开车", done: true },
+            ],
+        };
+    },
+    methods: {
+        // 添加一个todo
+        addTodos(todoObj) {
+            // console.log('我是APP组件，我收到了数据：', x)
+            this.todos.unshift(todoObj);
+        },
+        // 勾选或取消勾选一个todo
+        checkTodo(id) {
+            this.todos.forEach(element => {
+                if (element.id === id) element.done = !element.done
+            });
+            // console.log(this.todos)
+        },
+        // 删除
+        deleteTodo(id) {
+            this.todos = this.todos.filter(element => {
+                return element.id !== id
+            })
+        },
+        // 全选OR取消全选
+        checkAllTodo(done) {
+            this.todos.forEach(todo => todo.done = done)
+        },
+        // 清除所有已完成的todo
+        clearAllTodo() {
+            this.todos = this.todos.filter(todo => {
+                return !todo.done
+            })
+        }
+    }
 };
 </script>
 
@@ -66,5 +105,4 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
 }
-
 </style>
