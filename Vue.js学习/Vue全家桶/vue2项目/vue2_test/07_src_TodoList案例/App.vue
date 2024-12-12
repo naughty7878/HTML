@@ -21,24 +21,12 @@ export default {
     components: { MyHeader, MyFooter, MyList },
     data() {
         return {
-            // todos: [
-            //     { id: "0001", title: "抽烟", done: true },
-            //     { id: "0002", title: "喝酒", done: false },
-            //     { id: "0003", title: "开车", done: true },
-            // ],
-            todos: JSON.parse(localStorage.getItem('todos')) || []
+            todos: [
+                { id: "0001", title: "抽烟", done: true },
+                { id: "0002", title: "喝酒", done: false },
+                { id: "0003", title: "开车", done: true },
+            ],
         };
-    },
-    watch: {
-        // todos(value) {
-        //     localStorage.setItem('todos', JSON.stringify(value))
-        // }
-        todos: {
-            deep: true,
-            handler(value) {
-                localStorage.setItem('todos', JSON.stringify(value))
-            }
-        }
     },
     methods: {
         // 添加一个todo
