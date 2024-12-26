@@ -2,8 +2,8 @@
     <!-- 组件的结构 -->
     <li>
         <label>
-                  <!-- 不建议这样操作
-                有点违反原则，数据在哪里，修改方法就在哪里 -->
+            <!-- 不建议这样操作
+            有点违反原则，数据在哪里，修改方法就在哪里-->
             <!-- <input type="checkbox" v-model="todo.done" /> -->
 
             <input type="checkbox" :checked="todo.done" @change="handleCheck(todo.id)" />
@@ -19,19 +19,21 @@
 export default {
     name: "Item",
     // 声明接受tudo对象
-    props: ['todo', 'checkTodo', 'deleteTodo'],
+    props: ["todo"],
     methods: {
         handleCheck(id) {
             // 通知todo对象数据操作
             // console.log(id);
-            this.checkTodo(id);
+            // this.checkTodo(id);
+            this.$bus.$emit("checkTodo", id);
         },
         handleDelete(id) {
-            if(confirm('确认删除吗？')) {
+            if (confirm("确认删除吗？")) {
                 // console.log(id);
-                this.deleteTodo(id)
+                // this.deleteTodo(id);
+                this.$bus.$emit("deleteTodo", id);
             }
-        }
+        },
     },
 };
 </script>
