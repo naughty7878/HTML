@@ -1,9 +1,8 @@
-    <!-- 组件的结构 -->
 <template>
+    <!-- 组件的结构 -->
     <div class="school">
-        <h2 @click="showName">学校名称：{{name}}</h2>
+        <h2>学校名称：{{name}}</h2>
         <h2>学校地址：{{address}}</h2>
-        <button @click="sendSchoolName">把学校名字给APP</button>
     </div>
 </template>
 
@@ -18,13 +17,17 @@ export default {
             address: "深圳",
         };
     },
+    mounted() {
+        console.log("School", this.x)
+        this.$bus.$on('hello', (data) => {
+            console.log('我是School组件，收到了数据', data);
+        })
+    },
     methods: {
-        showName() {
-            alert(this.name);
-        },
-        sendSchoolName() {
-            this.getSchoolName(this.name)
-        },
+    },
+    beforeDestroy() {
+        // 记得销毁
+        this.$bus.$off('hello')
     },
 };
 </script>
