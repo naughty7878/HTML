@@ -8,7 +8,6 @@ import About from "../pages/About"
 import Home from "../pages/Home"
 import News from "../pages/News"
 import Message from "../pages/Message"
-import Detail from "../pages/Detail"
 
 // 创建一个路由器 ，并导出路由器
 export default new VueRouter({
@@ -31,13 +30,6 @@ export default new VueRouter({
                 {
                     path: 'message',
                     component: Message,
-                    // 三级路由
-                    children: [
-                        {
-                            path: 'detail',
-                            component: Detail,
-                        },
-                    ]
                 },
             ]
         },
