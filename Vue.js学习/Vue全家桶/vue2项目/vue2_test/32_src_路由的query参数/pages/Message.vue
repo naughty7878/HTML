@@ -11,7 +11,7 @@
                         path: '/home/message/detail', 
                         query: {id: m.id, title: m.title} 
                     }"
-                >{{m.title}}</router-link>&nbsp;&nbsp;
+                >{{m.title}}</router-link>
             </li>
         </ul>
         <hr />
