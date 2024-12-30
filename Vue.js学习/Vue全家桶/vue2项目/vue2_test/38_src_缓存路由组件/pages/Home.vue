@@ -18,7 +18,7 @@
             <!-- 缓存多个路由组件 -->
             <!-- <keep-alive :include="['News', 'Message']">
                 <router-view></router-view>
-            </keep-alive> -->
+            </keep-alive>-->
 
             <!-- 缓存一个路由组件 -->
             <keep-alive include="News">
