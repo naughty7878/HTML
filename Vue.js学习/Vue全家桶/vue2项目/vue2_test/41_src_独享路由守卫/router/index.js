@@ -32,19 +32,19 @@ const router = new VueRouter({
                     path: 'news',
                     component: News,
                     meta: { isAuth: true, title: '新闻' },
-                    // beforeEnter: (to, from, next) => {
-                    //     // 独享守卫
-                    //     // 只有前置 独享守卫，没有后置 独享守卫
-                    //     if (to.meta.isAuth) {
-                    //         if (localStorage.getItem('school') === 'atguigu') {
-                    //             next()
-                    //         } else {
-                    //             alert('学校名不对，无权限查看')
-                    //         }
-                    //     } else {
-                    //         next()
-                    //     }
-                    // }
+                    beforeEnter: (to, from, next) => {
+                        // 独享守卫
+                        // 只有前置 独享守卫，没有后置 独享守卫
+                        if (to.meta.isAuth) {
+                            if (localStorage.getItem('school') === 'atguigu') {
+                                next()
+                            } else {
+                                alert('学校名不对，无权限查看')
+                            }
+                        } else {
+                            next()
+                        }
+                    }
                 },
                 {
                     name: 'xiaoxi',
