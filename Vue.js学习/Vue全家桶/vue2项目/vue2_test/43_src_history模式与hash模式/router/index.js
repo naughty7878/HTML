@@ -12,6 +12,8 @@ import Detail from "../pages/Detail"
 
 // 创建一个路由器 ，并导出路由器
 const router = new VueRouter({
+    // 工作模式
+    mode:'history',
     // 一级路由
     routes: [
         {
