@@ -15,6 +15,7 @@ import useDog from "@/hooks/useDog.ts";
 
 const {sum, changeSum} = useSum();
 const {dogList, getDog} = useDog();
+
 </script>
 
 <style scoped>
