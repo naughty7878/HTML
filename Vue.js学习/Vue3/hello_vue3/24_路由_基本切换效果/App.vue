@@ -1,10 +1,10 @@
 <template>
   <div class="app">
-    <Header></Header>
+    <h2 class="title">Vue路由测试</h2>
     <!-- 导航区 -->
     <div class="navigate">
-      <RouterLink :to="{path: '/home'}" active-class="active">首页</RouterLink>
-      <RouterLink :to="{name: 'xinwen'}" active-class="active">新闻</RouterLink>
+      <RouterLink to="/home" active-class="active">首页</RouterLink>
+      <RouterLink to="/news" active-class="active">新闻</RouterLink>
       <RouterLink to="/about" active-class="active">关于</RouterLink>
     </div>
     <!-- 展示区 -->
@@ -16,7 +16,6 @@
 
 <script lang="ts" setup>
 import {RouterView} from "vue-router";
-import Header from "@/components/Header.vue";
 </script>
 
 <style scoped>

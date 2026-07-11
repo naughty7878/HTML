@@ -1,0 +1,31 @@
+// 创建一个路由器，并暴露出去
+
+// 第一步：引入createRouter
+import {createRouter, createWebHashHistory, createWebHistory} from 'vue-router'
+import Home from '@/views/Home.vue'
+import About from '@/views/About.vue'
+import News from "@/views/News.vue";
+
+// 第二部：创建路由器
+const router = createRouter({
+    // createWebHistory history模式
+    // createWebHashHistory 哈希模式
+    history: createWebHashHistory(), // 路由器的工作模式
+    routes: [
+        {
+            path: '/home',
+            component: Home
+        },
+        {
+            path: '/news',
+            component: News
+        },
+        {
+            path: '/about',
+            component: About
+        }
+    ]
+})
+
+// 暴露出去
+export default router
