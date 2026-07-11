@@ -1,7 +1,7 @@
 // 创建一个路由器，并暴露出去
 
 // 第一步：引入createRouter
-import {createRouter, createWebHistory} from 'vue-router'
+import {createRouter, createWebHashHistory, createWebHistory} from 'vue-router'
 import Home from '@/views/Home.vue'
 import About from '@/views/About.vue'
 import News from "@/views/News.vue";
@@ -14,10 +14,6 @@ const router = createRouter({
     history: createWebHistory(), // 路由器的工作模式
     routes: [
         {
-            path: '/',
-            redirect: '/home'
-        },
-        {
             name: 'zhuye',
             path: '/home',
             component: Home
@@ -29,22 +25,8 @@ const router = createRouter({
             children: [
                 {
                     name: 'xinwenxiangqing',
-                    path: 'newsDetail',
-                    component: NewsDetial,
-                    // 第一种写法：将路由收到的所有params参数作为props传给组件
-                    // props: true
-
-                    // 第二种写法：函数写法，可以自己决定将什么作为props给路由组件
-                    props: (route) => {
-                        return route.query
-                    }
-
-                    // 第二种写法：对象写法
-                    // props: {
-                    //     id: '001',
-                    //     title: 'xx',
-                    //     content: 'xx'
-                    // }
+                    path: 'newDetail',
+                    component: NewsDetial
                 }
             ]
         },

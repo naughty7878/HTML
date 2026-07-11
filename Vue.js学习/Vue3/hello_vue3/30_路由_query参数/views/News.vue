@@ -4,29 +4,28 @@
     <ul class="news-list">
       <li v-for="news in newsList" :key="news.id" class="news-item">
         <!-- 第一种写法 -->
-<!--        <RouterLink-->
-<!--            class="news-link"-->
-<!--            active-class="active"-->
-<!--            :to="`/news/newDetail/${news.id}/${news.title}/${news.content}`"-->
-<!--        >-->
-<!--          {{ news.title }}-->
-<!--        </RouterLink>-->
-        <!-- 第一种写法 -->
+        <!--        <RouterLink-->
+        <!--            class="news-link"-->
+        <!--            active-class="active"-->
+        <!--            :to="`/news/newDetail?id=${news.id}&title=${news.title}&content=${news.content}`"-->
+        <!--        >-->
+        <!--          {{ news.title }}-->
+        <!--        </RouterLink>-->
+
+        <!-- 第二种写法 -->
         <RouterLink
             class="news-link"
             active-class="active"
             :to="{
-              name: `xinwenxiangqing`,
+              path: '/news/newDetail',
               query: {
                 id: news.id,
                 title: news.title,
-                content: news.content,
-              }
-            }"
+                content: news.content
+            }}"
         >
           {{ news.title }}
         </RouterLink>
-
       </li>
     </ul>
     <!-- 展示区 -->

@@ -17,7 +17,7 @@
             active-class="active"
             :to="{
               name: `xinwenxiangqing`,
-              query: {
+              params: {
                 id: news.id,
                 title: news.title,
                 content: news.content,
