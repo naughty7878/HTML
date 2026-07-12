@@ -6,9 +6,9 @@
 </template>
 
 <script lang="ts" setup>
-import {ref} from "vue";
+import useMsgRef from "@/hooks/useMsgRef.ts";
 
-let {msg} = ref('hello')
+let {msg} = useMsgRef('hello', 2000)
 
 </script>
 
