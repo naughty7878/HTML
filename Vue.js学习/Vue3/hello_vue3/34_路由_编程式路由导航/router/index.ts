@@ -13,7 +13,6 @@ const router = createRouter({
     // createWebHashHistory 哈希模式
     history: createWebHistory(), // 路由器的工作模式
     routes: [
-        // 重定向
         {
             path: '/',
             redirect: '/home'

@@ -3,7 +3,15 @@
     <!-- 导航区 -->
     <ul class="news-list">
       <li v-for="news in newsList" :key="news.id" class="news-item">
-        <button @click="showNewsDetail(news)">查看新闻</button>
+        <!-- 第一种写法 -->
+<!--        <RouterLink-->
+<!--            class="news-link"-->
+<!--            active-class="active"-->
+<!--            :to="`/news/newDetail/${news.id}/${news.title}/${news.content}`"-->
+<!--        >-->
+<!--          {{ news.title }}-->
+<!--        </RouterLink>-->
+        <!-- 第一种写法 -->
         <RouterLink
             class="news-link"
             active-class="active"
@@ -30,33 +38,12 @@
 
 <script setup lang="ts">
 import {reactive} from "vue";
-import { useRouter } from "vue-router";
 
 const newsList = reactive([
   {id: '001', title: '世界杯', content: '挪威夺冠'},
   {id: '002', title: '天气预报', content: '特大暴雨'},
   {id: '003', title: '好消息', content: '快放假了'}
 ])
-
-const router = useRouter()
-
-interface NewsInter {
-  id: string;
-  title: string;
-  content: string;
-}
-
-function showNewsDetail(news: NewsInter) {
-  router.push({
-    name: `xinwenxiangqing`,
-    query: {
-      id: news.id,
-      title: news.title,
-      content: news.content,
-    }
-  })
-
-}
 </script>
 
 <style scoped>
