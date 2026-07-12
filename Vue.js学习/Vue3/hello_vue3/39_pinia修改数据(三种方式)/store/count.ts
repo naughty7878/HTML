@@ -13,10 +13,5 @@ export const useCountStore = defineStore("count", {
         return {
             sum: 6
         }
-    },
-    getters: {
-        bigSum(state) {
-            return state.sum * 10
-        }
     }
 })

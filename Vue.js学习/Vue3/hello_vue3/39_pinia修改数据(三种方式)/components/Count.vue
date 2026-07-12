@@ -1,6 +1,6 @@
 <template>
   <div class="count">
-    <h2>当前求和为：{{ sum }}，放大十倍后：{{ bigSum }}</h2>
+    <h2>当前求和为：{{ countStore.sum }}</h2>
     <select v-model="n">
       <option :value="1">1</option>
       <option :value="2">2</option>
@@ -14,17 +14,21 @@
 <script setup lang="ts">
 import {ref} from "vue";
 import {useCountStore} from "@/store/count.ts";
-import {storeToRefs} from "pinia";
 
 const countStore = useCountStore();
-// 使用storeToRefs只会关注store种的数据，不会对方法进行ref包裹
-const { sum, bigSum } = storeToRefs(countStore);
 
 // 数据
 let n = ref((1))
 
 // 方法
 function add() {
+  // 第一种：修改方式
+  // countStore.sum += n.value;
+  // 第二种：$patch
+  // countStore.$patch({
+  //   sum: countStore.sum + n.value,
+  // })
+  // 第三种：actions
   countStore.increment(n.value)
 }
 

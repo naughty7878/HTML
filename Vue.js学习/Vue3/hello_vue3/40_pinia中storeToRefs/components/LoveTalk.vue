@@ -1,6 +1,6 @@
 <template>
   <div class="talk">
-    <button @click="talkStore.getLoveTalk">获取一句土味情话</button>
+    <button @click="getLoveTalk">获取一句土味情话</button>
     <ul>
       <li v-for="talk in talkStore.talkList" :key="talk.id">{{talk.title}}</li>
     </ul>
@@ -11,15 +11,13 @@
 import axios from "axios";
 import {nanoid} from 'nanoid'
 import {useTalkStore} from "@/store/loveTalk.ts";
-import {storeToRefs} from "pinia";
 
 const talkStore = useTalkStore();
 
-talkStore.$subscribe((mutation, state) => {
-  console.log("talkStore里面的数据变化了", mutation, state);
-  localStorage.setItem("talkList", JSON.stringify(state.talkList));
-})
-
+// 方法
+async function getLoveTalk(){
+  await talkStore.getLoveTalk()
+}
 </script>
 
 <style scoped>
