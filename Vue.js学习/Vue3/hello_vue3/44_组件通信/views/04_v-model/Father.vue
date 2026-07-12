@@ -9,8 +9,8 @@
 
     <!-- v-model用在组件标签上 -->
     <!-- <AtguiguInput v-model="username"/> -->
-    <!-- <AtguiguInput 
-      :modelValue="username" 
+    <!-- <AtguiguInput
+      :modelValue="username"
       @update:modelValue="username = $event"
     /> -->
 
@@ -19,12 +19,12 @@
   </div>
 </template>
 
-<script setup lang="ts" name="Father">
-	import { ref } from "vue";
-  import AtguiguInput from './AtguiguInput.vue'
-  // 数据
-  let username = ref('zhansgan')
-  let password = ref('123456')
+<script setup lang="ts">
+import {ref} from "vue";
+import AtguiguInput from './AtguiguInput.vue'
+// 数据
+let username = ref('zhansgan')
+let password = ref('123456')
 </script>
 
 <style scoped>

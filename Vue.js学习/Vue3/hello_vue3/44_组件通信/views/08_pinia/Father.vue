@@ -5,13 +5,13 @@
   </div>
 </template>
 
-<script setup lang="ts" name="Father">
+<script setup lang="ts">
 </script>
 
 <style scoped>
-  .father{
-    background-color: rgb(165, 165, 165);
-    padding: 20px;
-    border-radius: 10px;
-  }
+.father {
+  background-color: rgb(165, 165, 165);
+  padding: 20px;
+  border-radius: 10px;
+}
 </style>
