@@ -1,22 +1,20 @@
 <template>
   <div class="app">
-    <h2>{{ msg }}</h2>
-    <input type="text" v-model="msg">
+    <h2>我是App组件{{ x }}</h2>
+    <Hello/>
+    <Child/>
   </div>
 </template>
 
-<script lang="ts" setup>
-import {ref} from "vue";
-
-let {msg} = ref('hello')
-
+<script setup lang="ts" name="App">
+  import Child from './Child.vue'
 </script>
 
-<style scoped>
-.app {
-  background-color: #f5f5f5;
-  box-shadow: 0 0 10px;
-  border-radius: 10px;
-  padding: 20px;
-}
+<style>
+  .app {
+    background-color: #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px;
+  }
 </style>
